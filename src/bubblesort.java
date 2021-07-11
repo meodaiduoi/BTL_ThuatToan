@@ -4,7 +4,7 @@ import org.graalvm.compiler.lir.aarch64.AArch64AtomicMove.CompareAndSwapOp;
 
 public class bubblesort  extends sort {
     
-    int loop_count
+    int loop_count;
     
     bubblesort (double[] array, double interval) {
         super(array, interval);
