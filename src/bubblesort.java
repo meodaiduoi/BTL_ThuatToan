@@ -1,11 +1,7 @@
-package Java.BTL_ThuatToan;
-
-import org.graalvm.compiler.lir.aarch64.AArch64AtomicMove.CompareAndSwapOp;
+package Java.BTL_ThuatToan.src;
 
 public class bubblesort  extends sort {
-    
-    int loop_count
-    
+
     bubblesort (double[] array, double interval) {
         super(array, interval);
     }

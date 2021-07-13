@@ -1,7 +1,6 @@
-package Java.BTL_ThuatToan;
+package Java.BTL_ThuatToan.src;
 
 import java.util.ArrayList;
-import 
 public class sort {
 
     protected double[] array;
