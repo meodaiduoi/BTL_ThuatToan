@@ -1,14 +1,14 @@
 import java.util.ArrayList;
 import java.util.Random;
 
-public class RandomArray {
+public class RandomIntArray {
     private int size = 10;
     private ArrayList<Integer> array = new ArrayList<>();
-    RandomArray () {
+    RandomIntArray () {
         arrayGenerator();
     }
 
-    RandomArray (int size) {
+    RandomIntArray (int size) {
         this.size = size;
         arrayGenerator();
     }

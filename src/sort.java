@@ -1,7 +1,24 @@
-package Java.BTL_ThuatToan.src;
-
 import java.util.ArrayList;
-public class sort {
+
+public class sort implements RuntimeClock {
+
+    // passing Arraylist here: with constructor
+    private ArrayList<Number> array = new ArrayList<>();
+
+    private long bubblesort_nanoTime;
+    private long interchangesort_nanoTime;
+    private long selectionsort_nanoTime;
+
+    private long bubblesort_getLoopsTimes;
+    private long interchangesort_getLoopTimes;
+    private long selectionsort_getLoopTimes;
+
+
+    sort() {}
+
+    sort(ArrayList<Number> array) {
+        this.array = array;
+    }
 
     /**
      *Insertion Sort
@@ -89,4 +106,42 @@ public class sort {
         sort.selectionSort(arrayList);
         System.out.println(arrayList);
     }
+
+    // return runtime and looptimes here:
+    @Override
+    public long bubblesort_getRuntime() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public long interchangesort_getRuntime() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public long selectionsort_getRuntime() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public long bubblesort_getLoopsTimes() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public long interchangesort_getLoopTimes() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public long selectionsort_getLoopTimes() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
 }
