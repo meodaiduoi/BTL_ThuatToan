@@ -94,7 +94,7 @@ public class Controller implements Initializable {
 
         try {
             Double.parseDouble(interval.getText());
-            RandomIntArray array = new RandomIntArray(Integer.parseInt(array_size.getText()));
+            RandomArray array = new RandomArray(Integer.parseInt(array_size.getText()));
 
 
             //sorting option
@@ -135,17 +135,17 @@ public class Controller implements Initializable {
         series_selectionsort.setName("Selection sort");
 
         // test data
-        // series_bubblesort.getData().add(new XYChart.Data<String, Number>("0.1", 3));
-        // series_bubblesort.getData().add(new XYChart.Data<String, Number>("0.2", 33));
-        // series_bubblesort.getData().add(new XYChart.Data<String, Number>("0.3", 69));
-
-        // series_interchangesort.getData().add(new XYChart.Data<String, Number>("0.1", 60));
-        // series_interchangesort.getData().add(new XYChart.Data<String, Number>("0.2", 80));
-        // series_interchangesort.getData().add(new XYChart.Data<String, Number>("0.3", 50));
-
-        // series_selectionsort.getData().add(new XYChart.Data<String, Number>("0.1", 12));
-        // series_selectionsort.getData().add(new XYChart.Data<String, Number>("0.2", 50));
-        // series_selectionsort.getData().add(new XYChart.Data<String, Number>("0.3", 4));
+        series_bubblesort.getData().add(new XYChart.Data<String, Number>("0.1", 3));
+        series_bubblesort.getData().add(new XYChart.Data<String, Number>("0.2", 33));
+        series_bubblesort.getData().add(new XYChart.Data<String, Number>("0.3", 69));
+// 
+        series_interchangesort.getData().add(new XYChart.Data<String, Number>("0.1", 60));
+        series_interchangesort.getData().add(new XYChart.Data<String, Number>("0.2", 80));
+        series_interchangesort.getData().add(new XYChart.Data<String, Number>("0.3", 50));
+// 
+        series_selectionsort.getData().add(new XYChart.Data<String, Number>("0.1", 12));
+        series_selectionsort.getData().add(new XYChart.Data<String, Number>("0.2", 50));
+        series_selectionsort.getData().add(new XYChart.Data<String, Number>("0.3", 4));
 
         // add figure
         linechart.getData().add(series_bubblesort);

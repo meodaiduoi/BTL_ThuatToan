@@ -4,6 +4,7 @@ public class sort implements RuntimeClock {
 
     // passing Arraylist here: with constructor
     private ArrayList<Number> array = new ArrayList<>();
+    private double interval;
 
     private long bubblesort_nanoTime;
     private long interchangesort_nanoTime;
@@ -14,10 +15,14 @@ public class sort implements RuntimeClock {
     private long selectionsort_getLoopTimes;
 
 
-    sort() {}
+    sort() {
+        this.array = new RandomArray().getArray();
+        this.interval = 0.3;
+    }
 
-    sort(ArrayList<Number> array) {
+    sort(ArrayList<Number> array, double interval) {
         this.array = array;
+        this.interval = interval;
     }
 
     /**
