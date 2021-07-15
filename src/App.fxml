@@ -40,9 +40,7 @@
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -51,41 +49,51 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="400.0" prefWidth="657.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
   <children>
-    <MenuBar VBox.vgrow="NEVER">
-      <menus>
-        <Menu mnemonicParsing="false" text="File">
-          <items>
-            <MenuItem mnemonicParsing="false" text="Quit" />
-          </items>
-        </Menu>
-      </menus>
-    </MenuBar>
-      <SplitPane dividerPositions="0.0" VBox.vgrow="ALWAYS">
+      <SplitPane dividerPositions="0.001" prefWidth="640.0" VBox.vgrow="ALWAYS">
          <items>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" SplitPane.resizableWithParent="false">
                <children>
-                  <VBox layoutX="33.0" layoutY="53.0" prefHeight="105.0" prefWidth="158.0">
+                  <VBox layoutX="33.0" layoutY="33.0" prefHeight="195.0" prefWidth="158.0">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Configuration">
                            <font>
-                              <Font size="13.0" />
+                              <Font size="20.0" />
                            </font>
+                           <VBox.margin>
+                              <Insets bottom="20.0" />
+                           </VBox.margin>
                         </Text>
-                        <TextField prefHeight="0.0" prefWidth="149.0" promptText="Array size">
+                        <Label text="Array size">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
                            <VBox.margin>
-                              <Insets top="15.0" />
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="array_size" prefHeight="0.0" prefWidth="149.0" promptText="Array size">
+                           <VBox.margin>
+                              <Insets bottom="20.0" />
                            </VBox.margin>
                         </TextField>
-                        <TextField promptText="Interval">
+                        <Label text="Interval per record">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
                            <VBox.margin>
-                              <Insets top="15.0" />
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="interval" promptText="Interval">
+                           <VBox.margin>
+                              <Insets bottom="20.0" />
                            </VBox.margin>
                         </TextField>
-                        <Button alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" mnemonicParsing="false" text="Initialize graph">
+                        <Button fx:id="initchart" alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#handleButton_initgraph" text="Initialize graph">
                            <VBox.margin>
-                              <Insets top="15.0" />
+                              <Insets />
                            </VBox.margin>
                            <cursor>
                               <Cursor fx:constant="HAND" />
@@ -93,14 +101,14 @@
                         </Button>
                      </children>
                   </VBox>
-                  <VBox layoutX="33.0" layoutY="236.0" prefHeight="96.0" prefWidth="140.0">
+                  <VBox layoutX="33.0" layoutY="277.0" prefHeight="96.0" prefWidth="140.0">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Show lines" wrappingWidth="66.13672256469727">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Text>
-                        <CheckBox mnemonicParsing="false" prefHeight="17.0" prefWidth="130.0" selected="true" text="Bubble sort">
+                        <CheckBox fx:id="bubblesort" mnemonicParsing="false" prefHeight="17.0" prefWidth="130.0" selected="true" text="Bubble sort">
                            <VBox.margin>
                               <Insets top="10.0" />
                            </VBox.margin>
@@ -108,7 +116,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </CheckBox>
-                        <CheckBox mnemonicParsing="false" prefHeight="17.0" prefWidth="140.0" selected="true" text="Insertion sort ">
+                        <CheckBox fx:id="interchangesort" mnemonicParsing="false" prefHeight="17.0" prefWidth="140.0" selected="true" text="Interchange sort">
                            <VBox.margin>
                               <Insets top="10.0" />
                            </VBox.margin>
@@ -116,7 +124,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </CheckBox>
-                        <CheckBox mnemonicParsing="false" prefHeight="17.0" prefWidth="124.0" selected="true" text="Quick sort">
+                        <CheckBox fx:id="selectionsort" mnemonicParsing="false" prefHeight="17.0" prefWidth="124.0" selected="true" text="Selection sort">
                            <VBox.margin>
                               <Insets top="10.0" />
                            </VBox.margin>
@@ -135,7 +143,7 @@
                   </Pane>
                </children>
             </AnchorPane>
-            <LineChart title="        Loops and runtime" SplitPane.resizableWithParent="false">
+            <LineChart fx:id="linechart" animated="false" axisSortingPolicy="NONE" title="        Loops and runtime" SplitPane.resizableWithParent="false">
               <xAxis>
                 <CategoryAxis label="Runtime" side="BOTTOM" />
               </xAxis>
@@ -146,6 +154,9 @@
                      </tickLabelFont>
                   </NumberAxis>
               </yAxis>
+               <padding>
+                  <Insets bottom="25.0" left="5.0" right="20.0" top="25.0" />
+               </padding>
             </LineChart>
          </items>
       </SplitPane>

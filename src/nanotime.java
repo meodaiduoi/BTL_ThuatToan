@@ -1,5 +1,7 @@
 package Java.BTL_ThuatToan.src;
 
-public class RuntimeClock {
-    
+interface RuntimeClock {
+    long nano_startTime = System.nanoTime();
+    long nano_endTime = System.nanoTime();
+    long getRuntime ();
 }
