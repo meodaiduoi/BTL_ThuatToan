@@ -1,6 +1,14 @@
 package Java.BTL_ThuatToan.src;
 
-public class bubblesort  extends sort {
+import java.util.ArrayList;
+
+public class bubblesort extends sort implements RuntimeClock {
+
+    int loop_count = 0;
+    long nano_startTime;
+    long nano_endTime;
+
+    ArrayList<Integer> array = new ArrayList<>();
 
     bubblesort (double[] array, double interval) {
         super(array, interval);
@@ -18,5 +26,11 @@ public class bubblesort  extends sort {
                     array[j+1] = temp;
                 }
         return array;
+    }
+
+    @Override
+    public long getRuntime() {
+        
+        return en;
     }
 }
