@@ -1,9 +1,13 @@
+import java.util.ArrayList;
 interface RuntimeClock {
-    long bubblesort_getRuntime ();
-    long interchangesort_getRuntime ();
-    long selectionsort_getRuntime ();
+    double bubblesort_getRuntime ();
+    double interchangesort_getRuntime ();
+    double selectionsort_getRuntime ();
+    double insertionsort_getRuntime ();
 
-    long bubblesort_getLoopsTimes ();
-    long interchangesort_getLoopTimes ();
-    long selectionsort_getLoopTimes ();
+    ArrayList<Number> bubblesort_getLoopsTimes ();
+    ArrayList<Number> interchangesort_getLoopTimes ();
+    ArrayList<Number> selectionsort_getLoopTimes ();
+    ArrayList<Number> insertionsort_getLoopTimes ();
+    
 }
