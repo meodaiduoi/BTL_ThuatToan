@@ -50,9 +50,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="616.0" prefWidth="918.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+<VBox prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
   <children>
-      <SplitPane dividerPositions="0.24344978165938866" prefWidth="838.0" VBox.vgrow="ALWAYS">
+      <SplitPane dividerPositions="0.24344978165938866" VBox.vgrow="ALWAYS">
          <items>
             <AnchorPane prefHeight="200.0" prefWidth="463.0" SplitPane.resizableWithParent="false">
                <children>
@@ -110,14 +110,14 @@
                         </Button>
                      </children>
                   </VBox>
-                  <VBox layoutX="33.0" layoutY="295.0" prefHeight="96.0" prefWidth="140.0">
+                  <VBox layoutX="33.0" layoutY="296.0" prefHeight="96.0" prefWidth="140.0">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Show lines" wrappingWidth="66.13672256469727">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Text>
-                        <CheckBox fx:id="bubblesort" mnemonicParsing="false" prefHeight="17.0" prefWidth="130.0" selected="true" text="Bubble sort">
+                        <CheckBox fx:id="bubblesort" mnemonicParsing="false" prefHeight="17.0" prefWidth="130.0" text="Bubble sort">
                            <VBox.margin>
                               <Insets top="10.0" />
                            </VBox.margin>
@@ -125,7 +125,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </CheckBox>
-                        <CheckBox fx:id="interchangesort" mnemonicParsing="false" prefHeight="17.0" prefWidth="140.0" selected="true" text="Interchange sort">
+                        <CheckBox fx:id="interchangesort" mnemonicParsing="false" prefHeight="17.0" prefWidth="140.0" text="Interchange sort">
                            <VBox.margin>
                               <Insets top="10.0" />
                            </VBox.margin>
@@ -133,13 +133,18 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </CheckBox>
-                        <CheckBox fx:id="selectionsort" mnemonicParsing="false" prefHeight="17.0" prefWidth="124.0" selected="true" text="Selection sort">
+                        <CheckBox fx:id="selectionsort" mnemonicParsing="false" prefHeight="17.0" prefWidth="124.0" text="Selection sort">
                            <VBox.margin>
                               <Insets top="10.0" />
                            </VBox.margin>
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
+                        </CheckBox>
+                        <CheckBox fx:id="insertionsort" mnemonicParsing="false" text="Insertion sort">
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
                         </CheckBox>
                      </children>
                   </VBox>
@@ -150,7 +155,7 @@
                         <TextField disable="true" editable="false" prefHeight="25.0" prefWidth="221.0" visible="false" />
                      </children>
                   </Pane>
-                  <VBox layoutX="33.0" layoutY="414.0" prefHeight="170.0" prefWidth="161.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="29.0" AnchorPane.topAnchor="414.0">
+                  <VBox layoutX="33.0" layoutY="439.0" prefHeight="126.0" prefWidth="158.0" AnchorPane.bottomAnchor="33.0" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="29.0" AnchorPane.topAnchor="439.0">
                      <children>
                         <CheckBox fx:id="debug" mnemonicParsing="false" text="Debug">
                            <VBox.margin>

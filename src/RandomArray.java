@@ -22,8 +22,8 @@ public class RandomArray {
         if (isInt) {
             Random rd = new Random();
             for (int i = 0; i < this.size; i++) {
-                this.array.add(rd.nextInt((100 + 100) + 1) - 100);
-                // this.array.add(rd.nextInt());
+                // this.array.add(rd.nextInt((100 + 100) + 1) - 100);
+                this.array.add(rd.nextInt());
             }
         }
         else {

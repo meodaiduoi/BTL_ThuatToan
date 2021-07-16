@@ -25,7 +25,7 @@ public class Sort implements RuntimeClock {
 
     /**
      * Insertion Sort
-     * 
+     *
      * @param <T>
      * @param list
      */

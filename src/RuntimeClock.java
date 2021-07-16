@@ -9,5 +9,5 @@ interface RuntimeClock {
     ArrayList<Number> interchangesort_getLoopTimes ();
     ArrayList<Number> selectionsort_getLoopTimes ();
     ArrayList<Number> insertionsort_getLoopTimes ();
-    
+
 }

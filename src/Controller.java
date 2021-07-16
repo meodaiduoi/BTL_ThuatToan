@@ -44,6 +44,9 @@ public class Controller implements Initializable {
     private CheckBox selectionsort;
 
     @FXML
+    private CheckBox insertionsort;
+
+    @FXML
     private CheckBox debug;
 
     @FXML
@@ -72,13 +75,18 @@ public class Controller implements Initializable {
         try {
             debugInfo("--------------");
 
-            Double.parseDouble(interval.getText());
             RandomArray array = new RandomArray(Integer.parseInt(array_size.getText()), is_interger_array.isSelected());
+            Sort sort = new Sort(array.getArray(), Integer.parseInt(interval.getText()));
 
             debugInfo("Init array size: ");
             //sorting option
             if (bubblesort.isSelected()) {
+
                 debugInfo("bbsort on");
+
+                sort.bubbleSort();
+                sort.bubblesort_getRuntime();
+
                 //for (int time = 0)
                 // series_bubblesort.getData().add(new XYChart.Data<String, Number>(, 3));
                 //linechart.getData().add(series_bubblesort);
@@ -86,12 +94,30 @@ public class Controller implements Initializable {
 
             if (interchangesort.isSelected()) {
                 debugInfo("icsort on");
+
+                sort.interChangeSort();
+                sort.interchangesort_getRuntime();
                 //linechart.getData().add(series_interchangesort);
             }
 
             if (selectionsort.isSelected()) {
                 debugInfo("sltsort on");
+
+                sort.selectionSort();
+                sort.selectionsort_getRuntime();
                 //linechart.getData().add(series_selectionsort);
+            }
+
+            if (insertionsort.isSelected()) {
+                debugInfo("isertsort on");
+
+                sort.selectionSort();
+                sort.selectionsort_getRuntime();
+
+                // for () {
+                // };
+
+                // linechart.getData().add(series_selectionsort);
             }
         }
 
