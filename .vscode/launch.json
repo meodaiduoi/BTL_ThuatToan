@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch ConsoleTutorial",
+            "request": "launch",
+            "mainClass": "ConsoleTutorial",
+            "projectName": "BTL_ThuatToan_6adb5ee9"
+        },
+        {
+            "type": "java",
             "name": "Launch sort",
             "request": "launch",
             "mainClass": "sort",

@@ -57,37 +57,46 @@ public class Controller implements Initializable {
     XYChart.Series<String, Number> series_selectionsort = new XYChart.Series<String, Number>();
 
     // Eventhandle - Controller
+    private void debugInfo (String text) {
+        System.out.println(text);
+        debug_output.appendText(text + "\n");
+    }
+
     @FXML
     private void handleButton_initgraph (ActionEvent event) {
+
         series_bubblesort.getData().clear();
         series_interchangesort.getData().clear();
         series_selectionsort.getData().clear();
 
         try {
+            debugInfo("--------------");
+
             Double.parseDouble(interval.getText());
             RandomArray array = new RandomArray(Integer.parseInt(array_size.getText()), is_interger_array.isSelected());
 
+            debugInfo("Init array size: ");
             //sorting option
             if (bubblesort.isSelected()) {
-                System.out.println("bbsort on");
+                debugInfo("bbsort on");
                 //for (int time = 0)
                 // series_bubblesort.getData().add(new XYChart.Data<String, Number>(, 3));
                 //linechart.getData().add(series_bubblesort);
             }
 
             if (interchangesort.isSelected()) {
-                System.out.println("icsort on");
+                debugInfo("icsort on");
                 //linechart.getData().add(series_interchangesort);
             }
 
             if (selectionsort.isSelected()) {
-                System.out.println("stsort on");
+                debugInfo("sltsort on");
                 //linechart.getData().add(series_selectionsort);
             }
         }
 
         catch (NumberFormatException E) {
-            System.out.println("Not A Number");
+            debugInfo("Not A Number");
         }
 
         catch (Exception E) {

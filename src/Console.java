@@ -17,5 +17,4 @@ public class Console extends OutputStream
     {
         output.appendText(String.valueOf((char) i));
     }
-
 }
