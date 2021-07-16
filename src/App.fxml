@@ -117,6 +117,14 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </CheckBox>
+                        <CheckBox fx:id="insertionsort" mnemonicParsing="false" prefHeight="17.0" prefWidth="130.0" selected="true" text="Insertion sort">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </CheckBox>
                         <CheckBox fx:id="interchangesort" mnemonicParsing="false" prefHeight="17.0" prefWidth="140.0" selected="true" text="Interchange sort">
                            <VBox.margin>
                               <Insets top="10.0" />

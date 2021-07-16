@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-
 public class sort implements RuntimeClock {
 
     // passing Arraylist here: with constructor
@@ -30,13 +29,15 @@ public class sort implements RuntimeClock {
      * @param <T>
      * @param list
      */
-
     public static <T extends Comparable> void insertionSort(ArrayList<T> list) {
         if (list.isEmpty()) {
             return;
         }
-
+        
+        System.nanoTime();
+        
         for (int i = 0; i < list.size(); i++) {
+            //start
             int j = i;
             T current_item = list.get(i);
 
@@ -45,6 +46,7 @@ public class sort implements RuntimeClock {
                 j--;
             }
             list.set(j, current_item);
+            //end
         }
     }
 
@@ -106,8 +108,8 @@ public class sort implements RuntimeClock {
         arrayList.add(6);
         System.out.println(arrayList);
 
-        sort.insertionSort(arrayList);
-        sort.bubbleSort(arrayList);
+        // sort.insertionSort(arrayList);
+        // sort.bubbleSort(arrayList);
         sort.selectionSort(arrayList);
         System.out.println(arrayList);
     }
@@ -132,19 +134,19 @@ public class sort implements RuntimeClock {
     }
 
     @Override
-    public long bubblesort_getLoopsTimes() {
+    public ArrayList<Number> bubblesort_getLoopsTimes() {
         // TODO Auto-generated method stub
         return 0;
     }
 
     @Override
-    public long interchangesort_getLoopTimes() {
+    public ArrayList<Number> interchangesort_getLoopTimes() {
         // TODO Auto-generated method stub
         return 0;
     }
 
     @Override
-    public long selectionsort_getLoopTimes() {
+    public ArrayList<Number> selectionsort_getLoopTimes() {
         // TODO Auto-generated method stub
         return 0;
     }

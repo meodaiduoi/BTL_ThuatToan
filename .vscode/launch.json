@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch unittest",
+            "request": "launch",
+            "mainClass": "unittest",
+            "projectName": "BTL_ThuatToan_cb478aa6"
+        },
+        {
+            "type": "java",
+            "name": "Launch sort",
+            "request": "launch",
+            "mainClass": "sort",
+            "projectName": "BTL_ThuatToan_cb478aa6"
+        },
+        {
+            "type": "java",
+            "name": "Launch App",
+            "request": "launch",
+            "mainClass": "App",
+            "projectName": "BTL_ThuatToan_cb478aa6"
+        },
+        {
+            "type": "java",
             "name": "Launch sort",
             "request": "launch",
             "mainClass": "sort",
