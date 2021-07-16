@@ -32,6 +32,9 @@ public class Controller implements Initializable {
     private TextArea debug_output;
 
     @FXML
+    private CheckBox is_interger_array;
+
+    @FXML
     private CheckBox bubblesort;
 
     @FXML
@@ -54,38 +57,6 @@ public class Controller implements Initializable {
     XYChart.Series<String, Number> series_selectionsort = new XYChart.Series<String, Number>();
 
     // Eventhandle - Controller
-
-    @FXML
-    private void handleCheckBox_bubblesort (ActionEvent event) {
-        if (bubblesort.isSelected()) {
-            System.out.println("bbsort on");
-        }
-        else {
-            System.out.println("bbsort off");
-        }
-    }
-
-    @FXML
-    private void handleCheckBox_interchangesort (ActionEvent event) {
-        if (interchangesort.isSelected()) {
-            System.out.println("icsort on");
-            //.setStyle();
-        }
-        else {
-            System.out.println("bbsort off");
-        }
-    }
-
-    @FXML
-    private void handleCheckBox_selectionsort (ActionEvent event) {
-        if (selectionsort.isSelected()) {
-            System.out.println("sssort on");
-        }
-        else {
-            System.out.println("bbsort off");
-        }
-    }
-
     @FXML
     private void handleButton_initgraph (ActionEvent event) {
         series_bubblesort.getData().clear();
@@ -94,8 +65,7 @@ public class Controller implements Initializable {
 
         try {
             Double.parseDouble(interval.getText());
-            RandomArray array = new RandomArray(Integer.parseInt(array_size.getText()));
-
+            RandomArray array = new RandomArray(Integer.parseInt(array_size.getText()), is_interger_array.isSelected());
 
             //sorting option
             if (bubblesort.isSelected()) {
@@ -125,27 +95,31 @@ public class Controller implements Initializable {
         }
     }
 
+
+
     //init
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        // This section of code is retared
+        debug.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            if (debug.isSelected()) {
+                debug_output.setVisible(true);
+            }
+            if (!debug.isSelected()) {
+                debug_output.setVisible(false);
+            }
+        });
 
         // init linechart
         series_bubblesort.setName("Bubblesort");
         series_interchangesort.setName("Interchange sort");
         series_selectionsort.setName("Selection sort");
 
-        // test data
-        series_bubblesort.getData().add(new XYChart.Data<String, Number>("0.1", 3));
-        series_bubblesort.getData().add(new XYChart.Data<String, Number>("0.2", 33));
-        series_bubblesort.getData().add(new XYChart.Data<String, Number>("0.3", 69));
-// 
-        series_interchangesort.getData().add(new XYChart.Data<String, Number>("0.1", 60));
-        series_interchangesort.getData().add(new XYChart.Data<String, Number>("0.2", 80));
-        series_interchangesort.getData().add(new XYChart.Data<String, Number>("0.3", 50));
-// 
-        series_selectionsort.getData().add(new XYChart.Data<String, Number>("0.1", 12));
-        series_selectionsort.getData().add(new XYChart.Data<String, Number>("0.2", 50));
-        series_selectionsort.getData().add(new XYChart.Data<String, Number>("0.3", 4));
+        // starting point
+        series_bubblesort.getData().add(new XYChart.Data<String, Number>("0", 0));
+        series_interchangesort.getData().add(new XYChart.Data<String, Number>("0", 0));
+        series_selectionsort.getData().add(new XYChart.Data<String, Number>("0", 0));
 
         // add figure
         linechart.getData().add(series_bubblesort);

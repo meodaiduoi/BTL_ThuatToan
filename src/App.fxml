@@ -52,11 +52,11 @@
 
 <VBox prefHeight="616.0" prefWidth="918.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
   <children>
-      <SplitPane dividerPositions="0.24668141592920353" prefWidth="838.0" VBox.vgrow="ALWAYS">
+      <SplitPane dividerPositions="0.24344978165938866" prefWidth="838.0" VBox.vgrow="ALWAYS">
          <items>
             <AnchorPane prefHeight="200.0" prefWidth="463.0" SplitPane.resizableWithParent="false">
                <children>
-                  <VBox layoutX="33.0" layoutY="33.0" prefHeight="195.0" prefWidth="158.0">
+                  <VBox layoutX="33.0" layoutY="28.0" prefHeight="195.0" prefWidth="158.0">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Configuration">
                            <font>
@@ -76,9 +76,17 @@
                         </Label>
                         <TextField fx:id="array_size" prefHeight="0.0" prefWidth="149.0" promptText="Array size">
                            <VBox.margin>
-                              <Insets bottom="20.0" />
+                              <Insets bottom="10.0" />
                            </VBox.margin>
                         </TextField>
+                        <CheckBox fx:id="is_interger_array" mnemonicParsing="false" text="Interger array">
+                           <VBox.margin>
+                              <Insets bottom="20.0" />
+                           </VBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </CheckBox>
                         <Label text="Interval per record">
                            <font>
                               <Font size="14.0" />
@@ -102,7 +110,7 @@
                         </Button>
                      </children>
                   </VBox>
-                  <VBox layoutX="33.0" layoutY="277.0" prefHeight="96.0" prefWidth="140.0">
+                  <VBox layoutX="33.0" layoutY="295.0" prefHeight="96.0" prefWidth="140.0">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Show lines" wrappingWidth="66.13672256469727">
                            <font>
@@ -142,19 +150,26 @@
                         <TextField disable="true" editable="false" prefHeight="25.0" prefWidth="221.0" visible="false" />
                      </children>
                   </Pane>
-                  <VBox layoutX="33.0" layoutY="403.0" prefHeight="187.0" prefWidth="161.0" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="29.0" AnchorPane.topAnchor="403.0">
+                  <VBox layoutX="33.0" layoutY="414.0" prefHeight="170.0" prefWidth="161.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="29.0" AnchorPane.topAnchor="414.0">
                      <children>
-                        <CheckBox mnemonicParsing="false" text="Debug">
+                        <CheckBox fx:id="debug" mnemonicParsing="false" text="Debug">
                            <VBox.margin>
                               <Insets bottom="10.0" />
                            </VBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </CheckBox>
-                        <TextArea editable="false" VBox.vgrow="ALWAYS" />
+                        <TextArea fx:id="debug_output" editable="false" prefHeight="113.0" prefWidth="161.0" visible="false" VBox.vgrow="ALWAYS">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </TextArea>
                      </children>
                   </VBox>
                </children>
             </AnchorPane>
-            <LineChart fx:id="linechart" animated="false" axisSortingPolicy="NONE" prefWidth="757.0" title="        Loops and runtime" SplitPane.resizableWithParent="false">
+            <LineChart fx:id="linechart" animated="false" axisSortingPolicy="NONE" title="        Loops and runtime" SplitPane.resizableWithParent="false">
               <xAxis>
                 <CategoryAxis label="Runtime" side="BOTTOM" />
               </xAxis>
