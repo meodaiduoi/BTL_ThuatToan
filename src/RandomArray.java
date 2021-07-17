@@ -5,59 +5,46 @@ public class RandomArray {
     private int size = 10;
     private ArrayList<Number> array = new ArrayList<>();
     RandomArray () {
-        arrayGenerator(0);
+        arrayGenerator(true, false, false, false);
     }
 
     RandomArray (int size) {
         this.size = size;
-        arrayGenerator(0);
+        arrayGenerator(true, false, false, false);
     }
 
-    RandomArray (int size, int type_array) {
+    RandomArray(int size, boolean isInt, boolean isSorted, boolean isReversed, boolean isApproximatelyArray){
         this.size = size;
-        arrayGenerator(type_array);
+        arrayGenerator(isInt, isSorted, isReversed, isApproximatelyArray);
     }
 
-    private void arrayGenerator (int type_array) {
+    private void arrayGenerator (boolean isInt, boolean isSorted, boolean isReversed, boolean isApproximatelyArray) {
         Random rd = new Random();
-        switch(type_array) {
-            case 0:
-                // random array
-                for (int i = 0; i < this.size; i++) {
-                    this.array.add(rd.nextInt((100 + 100) + 1) - 100);
-                    // this.array.add(rd.nextInt());
+        if (isInt) {
+            for (int i = 0; i < size; i++) {
+                array.add(rd.nextInt((100 + 100) + 1) - 100);
+                // array.add(rd.nextInt());
+            }
+        }
+        if (isSorted) {
+            for (int i = 0; i < size; i++) {
+                array.add(i);
+            }
+        }
+        if (isReversed) {
+            for (int i = size; i > 0; i--) {
+                array.add(i);
+            }
+        }
+        if (isApproximatelyArray) {
+            for (int i = 0; i < size; i++) {
+                if(i == (size-1)) {
+                    Number tmp = array.get(i-1);
+                    array.set(i-1, array.get(i - 2));
+                    array.set(i - 2, tmp);
                 }
-                break;
-            case 1:
-                // sorted array
-                for (int i = 0; i < this.size; i++) {
-                    this.array.add(i);
-                }
-                break;
-            case 2:
-                // inverse array
-                for (int i = this.size; i > 0; i--) {
-                    this.array.add(i);
-                }
-                break;
-            case 3:
-                // Mảng sai 1 vài phần tử
-                for (int i = 0; i < size; i++) {
-                    if(i == (size-1)) {
-                        Number tmp = array.get(i-1);
-                        array.set(i-1, array.get(i - 2));
-                        array.set(i - 2, tmp);
-                    }
-                    array.add(i);
-                }
-                break;
-            default:
-              // code block
-              // random array
-                for (int i = 0; i < this.size; i++) {
-                    // this.array.add(rd.nextInt((100 + 100) + 1) - 100);
-                    this.array.add(rd.nextInt());
-                }
+                array.add(i);
+            }
         }
     }
 
