@@ -81,7 +81,7 @@ public class Controller implements Initializable {
         try {
             int loop_interval = Integer.parseInt(interval.getText());
 
-            RandomArray array = new RandomArray(Integer.parseInt(array_size.getText()), is_interger_array.isSelected());
+            RandomArray array = new RandomArray(Integer.parseInt(array_size.getText()), is_interger_array.isSelected(), , false, false, false);
             Sort sort = new Sort(array.getArray(), loop_interval);
 
             debugInfo("-- Initialize new chart: --");
