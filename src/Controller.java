@@ -58,6 +58,7 @@ public class Controller implements Initializable {
     XYChart.Series<String, Number> series_bubblesort = new XYChart.Series<String, Number>();
     XYChart.Series<String, Number> series_interchangesort = new XYChart.Series<String, Number>();
     XYChart.Series<String, Number> series_selectionsort = new XYChart.Series<String, Number>();
+    XYChart.Series<String, Number> series_insertionsort = new XYChart.Series<String, Number>();
 
     // Eventhandle - Controller
     private void debugInfo (String text) {
@@ -68,56 +69,94 @@ public class Controller implements Initializable {
     @FXML
     private void handleButton_initgraph (ActionEvent event) {
 
+        // remove old data
         series_bubblesort.getData().clear();
         series_interchangesort.getData().clear();
         series_selectionsort.getData().clear();
+        series_insertionsort.getData().clear();
+        linechart.getData().removeAll(series_bubblesort, series_insertionsort, series_interchangesort, series_selectionsort);
 
         try {
             debugInfo("--------------");
 
+            int loop_interval = Integer.parseInt(interval.getText());
+
             RandomArray array = new RandomArray(Integer.parseInt(array_size.getText()), is_interger_array.isSelected());
-            Sort sort = new Sort(array.getArray(), Integer.parseInt(interval.getText()));
+            Sort sort = new Sort(array.getArray(), loop_interval);
 
             debugInfo("Init array size: ");
             //sorting option
-            if (bubblesort.isSelected()) {
 
+            //bubble sort
+            if (bubblesort.isSelected()) {
                 debugInfo("bbsort on");
 
                 sort.bubbleSort();
-                sort.bubblesort_getRuntime();
+                sort.bubblesort_getTotalRuntime();
 
-                //for (int time = 0)
-                // series_bubblesort.getData().add(new XYChart.Data<String, Number>(, 3));
-                //linechart.getData().add(series_bubblesort);
+                int total_loop = 0;
+                series_bubblesort.getData().add(new XYChart.Data<String, Number>("0", 0));
+                for (Number i : sort.bubblesort_getLoopTime()) {
+                    total_loop += loop_interval;
+                    series_bubblesort.getData().add(new XYChart.Data<String, Number>(String.valueOf(total_loop), i));
+                }
+
+                linechart.setCreateSymbols(false);
+                linechart.getData().add(series_bubblesort);
             }
 
+            //interchange sort
             if (interchangesort.isSelected()) {
                 debugInfo("icsort on");
 
                 sort.interChangeSort();
-                sort.interchangesort_getRuntime();
-                //linechart.getData().add(series_interchangesort);
+                sort.interchangesort_getTotalRuntime();
+
+                int total_loop = 0;
+                series_interchangesort.getData().add(new XYChart.Data<String, Number>("0", 0));
+                for (Number i : sort.interchangesort_getLoopTime()) {
+                    total_loop += loop_interval;
+                    series_interchangesort.getData().add(new XYChart.Data<String, Number>(String.valueOf(total_loop), i));
+                }
+
+                linechart.setCreateSymbols(false);
+                linechart.getData().add(series_interchangesort);
             }
 
+            //selection sort
             if (selectionsort.isSelected()) {
                 debugInfo("sltsort on");
 
                 sort.selectionSort();
-                sort.selectionsort_getRuntime();
-                //linechart.getData().add(series_selectionsort);
+                sort.selectionsort_getTotalRuntime();
+
+                int total_loop = 0;
+                series_selectionsort.getData().add(new XYChart.Data<String, Number>("0", 0));
+                for (Number i : sort.selectionsort_getLoopTime()) {
+                    total_loop += loop_interval;
+                    series_selectionsort.getData().add(new XYChart.Data<String, Number>(String.valueOf(total_loop), i));
+                }
+
+                linechart.setCreateSymbols(false);
+                linechart.getData().add(series_selectionsort);
             }
 
+            // insertion sort
             if (insertionsort.isSelected()) {
                 debugInfo("isertsort on");
 
-                sort.selectionSort();
-                sort.selectionsort_getRuntime();
+                sort.insertionSort();
+                sort.insertionsort_getTotalRuntime();
 
-                // for () {
-                // };
+                int total_loop = 0;
+                series_insertionsort.getData().add(new XYChart.Data<String, Number>("0", 0));
+                for (Number i : sort.insertionsort_getLoopTime()) {
+                    total_loop += loop_interval;
+                    series_insertionsort.getData().add(new XYChart.Data<String, Number>(String.valueOf(total_loop), i));
+                }
 
-                // linechart.getData().add(series_selectionsort);
+                linechart.setCreateSymbols(false);
+                linechart.getData().add(series_insertionsort);
             }
         }
 
@@ -125,9 +164,9 @@ public class Controller implements Initializable {
             debugInfo("Not A Number");
         }
 
-        catch (Exception E) {
-            System.out.println("Error ?");
-        }
+        // catch (Exception E) {
+        //     System.out.println("Error ?");
+        // }
     }
 
 
@@ -150,15 +189,18 @@ public class Controller implements Initializable {
         series_bubblesort.setName("Bubblesort");
         series_interchangesort.setName("Interchange sort");
         series_selectionsort.setName("Selection sort");
+        series_insertionsort.setName("Insertion sort");
 
         // starting point
         series_bubblesort.getData().add(new XYChart.Data<String, Number>("0", 0));
         series_interchangesort.getData().add(new XYChart.Data<String, Number>("0", 0));
         series_selectionsort.getData().add(new XYChart.Data<String, Number>("0", 0));
+        series_insertionsort.getData().add(new XYChart.Data<String, Number>("0", 0));
 
         // add figure
         linechart.getData().add(series_bubblesort);
         linechart.getData().add(series_interchangesort);
         linechart.getData().add(series_selectionsort);
+        linechart.getData().add(series_insertionsort);
     }
 }

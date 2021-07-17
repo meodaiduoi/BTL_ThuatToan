@@ -2,24 +2,24 @@ import java.util.ArrayList;
 
 public class Sort implements RuntimeClock {
 
-    private ArrayList<Number> default_list = new ArrayList<>();
-    private int time_each;
+    private ArrayList<Number> array = new ArrayList<>();
+    private int loop_interval;
 
-    public Sort(ArrayList<Number> array, int time_each) {
-        this.default_list = array;
-        this.time_each = time_each;
+    public Sort(ArrayList<Number> array, int loop_interval) {
+        this.array = array;
+        this.loop_interval = loop_interval;
     }
 
 
-    private double bubblesort_getRuntime, interchangesort_getRuntime, selectionsort_getRuntime, insertionsort_getRuntime;
+    private double bubblesort_TotalRuntime, interchangesort_TotalRuntime, selectionsort_TotalRuntime, insertionsort_TotalRuntime;
 
-    private ArrayList<Number> insertionsort_each_getLoopTimes = new ArrayList<>();
-    private ArrayList<Number> selectionsort_each_getLoopTimes = new ArrayList<>();
-    private ArrayList<Number> interchangesort_each_getLoopTimes = new ArrayList<>();
-    private ArrayList<Number> bubblesort_each_getLoopTimes = new ArrayList<>();
+    private ArrayList<Number> insertionsort_getLoopTime = new ArrayList<>();
+    private ArrayList<Number> selectionsort_getLoopTime = new ArrayList<>();
+    private ArrayList<Number> interchangesort_getLoopTime = new ArrayList<>();
+    private ArrayList<Number> bubblesort_getLoopTime = new ArrayList<>();
 
-    // return minisecond
-    public double getTime(long startTimes, long endTimes) {
+    // return milisecond
+    public double nanoToMili(long startTimes, long endTimes) {
         return (double) (endTimes - startTimes) / 1000000000;
     }
 
@@ -30,7 +30,7 @@ public class Sort implements RuntimeClock {
      * @param list
      */
     public ArrayList<Number> insertionSort() {
-        ArrayList<Number> list = new ArrayList<>(default_list);
+        ArrayList<Number> list = new ArrayList<>(this.array);
         int size = list.size();
 
         if (size == 0) {
@@ -50,25 +50,25 @@ public class Sort implements RuntimeClock {
             list.set(j, current_item);
             // end
 
-            if (i % time_each == 0) {
+            if (i % loop_interval == 0) {
                 long stop_each_time = System.nanoTime();
-                insertionsort_each_getLoopTimes.add(getTime(startTime, stop_each_time));
+                insertionsort_getLoopTime.add(nanoToMili(startTime, stop_each_time));
             }
 
         }
         long stopTime = System.nanoTime();
-        insertionsort_getRuntime = getTime(startTime, stopTime);
+        insertionsort_TotalRuntime = nanoToMili(startTime, stopTime);
         return list;
     }
 
     /**
      * Insertion Sort
-     * 
+     *
      * @param <T>
      * @param list
      */
     public ArrayList<Number> bubbleSort() {
-        ArrayList<Number> list = new ArrayList<>(default_list);
+        ArrayList<Number> list = new ArrayList<>(array);
         int size = list.size();
 
         if (size == 0) {
@@ -86,14 +86,14 @@ public class Sort implements RuntimeClock {
                 }
 
             }
-            if (i % time_each == 0) {
+            if (i % loop_interval == 0) {
                 long stop_each_time = System.nanoTime();
-                bubblesort_each_getLoopTimes.add(getTime(startTime, stop_each_time));
+                bubblesort_getLoopTime.add(nanoToMili(startTime, stop_each_time));
             }
 
         }
         long stopTime = System.nanoTime();
-        bubblesort_getRuntime = getTime(startTime, stopTime);
+        bubblesort_TotalRuntime = nanoToMili(startTime, stopTime);
         return list;
     }
 
@@ -104,7 +104,7 @@ public class Sort implements RuntimeClock {
      * @param list
      */
     public ArrayList<Number> selectionSort() {
-        ArrayList<Number> list = new ArrayList<>(default_list);
+        ArrayList<Number> list = new ArrayList<>(array);
 
         int size = list.size();
 
@@ -125,25 +125,25 @@ public class Sort implements RuntimeClock {
                 list.set(i, list.get(minIndex));
                 list.set(minIndex, tmp);
             }
-            if (i % time_each == 0) {
+            if (i % loop_interval == 0) {
                 long stop_each_time = System.nanoTime();
-                selectionsort_each_getLoopTimes.add(getTime(startTime, stop_each_time));
+                selectionsort_getLoopTime.add(nanoToMili(startTime, stop_each_time));
             }
 
         }
         long stopTime = System.nanoTime();
-        selectionsort_getRuntime = getTime(startTime, stopTime);
+        selectionsort_TotalRuntime = nanoToMili(startTime, stopTime);
         return list;
     }
 
     /**
      * Insertion Sort
-     * 
+     *
      * @param <T>
      * @param list
      */
     public ArrayList<Number> interChangeSort() {
-        ArrayList<Number> list = new ArrayList<>(default_list);
+        ArrayList<Number> list = new ArrayList<>(array);
 
         int size = list.size();
 
@@ -161,13 +161,13 @@ public class Sort implements RuntimeClock {
                     list.set(j, tmp);
                 }
             }
-            if (i % time_each == 0) {
+            if (i % loop_interval == 0) {
                 long stop_each_time = System.nanoTime();
-                interchangesort_each_getLoopTimes.add(getTime(startTime, stop_each_time));
+                interchangesort_getLoopTime.add(nanoToMili(startTime, stop_each_time));
             }
         }
         long stopTime = System.nanoTime();
-        interchangesort_getRuntime = getTime(startTime, stopTime);
+        interchangesort_TotalRuntime = nanoToMili(startTime, stopTime);
         return list;
     }
 
@@ -178,77 +178,76 @@ public class Sort implements RuntimeClock {
 
         System.out.println("------------insertionsort---------------");
 
-        System.out.println(sort.default_list);
+        System.out.println(sort.array);
         sort.insertionSort();
         System.out.println(sort.insertionSort());
-        System.out.println("Rum time: " + sort.insertionsort_getRuntime);
-        System.out.println("List time: " + sort.insertionsort_each_getLoopTimes);
+        System.out.println("Rum time: " + sort.insertionsort_TotalRuntime);
+        System.out.println("List time: " + sort.insertionsort_getLoopTime);
 
         System.out.println("------------bubblesort---------------");
-        System.out.println(sort.default_list);
+        System.out.println(sort.array);
         sort.bubbleSort();
         System.out.println(sort.bubbleSort());
-        System.out.println("Rum time: " + sort.bubblesort_getRuntime);
-        System.out.println("List time: " + sort.bubblesort_each_getLoopTimes);
+        System.out.println("Rum time: " + sort.bubblesort_TotalRuntime);
+        System.out.println("List time: " + sort.bubblesort_getLoopTime);
 
         System.out.println("-----------SELECTION---------------");
         // System.out.println(rd.getArray());
-        System.out.println(sort.default_list);
+        System.out.println(sort.array);
         sort.selectionSort();
         System.out.println(sort.selectionSort());
-        System.out.println("Rum time: " + sort.selectionsort_getRuntime);
-        System.out.println("List time: " + sort.selectionsort_each_getLoopTimes);
+        System.out.println("Rum time: " + sort.selectionsort_TotalRuntime);
+        System.out.println("List time: " + sort.selectionsort_getLoopTime);
 
         System.out.println("-----------InterChange---------------");
         // System.out.println(rd.getArray());
-        System.out.println(sort.default_list);
+        System.out.println(sort.array);
         sort.selectionSort();
         System.out.println(sort.interChangeSort());
-        System.out.println("Rum time: " + sort.interchangesort_getRuntime);
-        System.out.println("List time: " + sort.interchangesort_each_getLoopTimes);
+        System.out.println("Rum time: " + sort.interchangesort_TotalRuntime);
+        System.out.println("List time: " + sort.interchangesort_getLoopTime);
 
     }
 
     // return runtime and looptimes here:
     @Override
-    public double bubblesort_getRuntime() {
-        return bubblesort_getRuntime;
+    public double bubblesort_getTotalRuntime() {
+        return bubblesort_TotalRuntime;
     }
 
     @Override
-    public double interchangesort_getRuntime() {
-        return insertionsort_getRuntime;
+    public double interchangesort_getTotalRuntime() {
+        return insertionsort_TotalRuntime;
     }
 
     @Override
-    public double insertionsort_getRuntime() {
-        return insertionsort_getRuntime;
+    public double insertionsort_getTotalRuntime() {
+        return insertionsort_TotalRuntime;
     }
 
     @Override
-    public double selectionsort_getRuntime() {
-        return selectionsort_getRuntime;
+    public double selectionsort_getTotalRuntime() {
+        return selectionsort_TotalRuntime;
     }
 
     @Override
-    public ArrayList<Number> bubblesort_getLoopsTimes() {
-        return bubblesort_each_getLoopTimes;
+    public ArrayList<Number> bubblesort_getLoopTime() {
+        return bubblesort_getLoopTime;
     }
 
     @Override
-    public ArrayList<Number> insertionsort_getLoopTimes() {
-        return insertionsort_each_getLoopTimes;
+    public ArrayList<Number> insertionsort_getLoopTime() {
+        return insertionsort_getLoopTime;
     }
 
     @Override
-    public ArrayList<Number> interchangesort_getLoopTimes() {
-        // TODO Auto-generated method stub
-        return interchangesort_each_getLoopTimes;
+    public ArrayList<Number> interchangesort_getLoopTime() {
+        return interchangesort_getLoopTime;
     }
 
     @Override
-    public ArrayList<Number> selectionsort_getLoopTimes() {
-        return selectionsort_each_getLoopTimes;
+    public ArrayList<Number> selectionsort_getLoopTime() {
+        return selectionsort_getLoopTime;
     }
 
 }

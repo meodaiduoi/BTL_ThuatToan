@@ -79,7 +79,7 @@
                               <Insets bottom="10.0" />
                            </VBox.margin>
                         </TextField>
-                        <CheckBox fx:id="is_interger_array" mnemonicParsing="false" text="Interger array">
+                        <CheckBox fx:id="is_interger_array" mnemonicParsing="false" selected="true" text="Interger array">
                            <VBox.margin>
                               <Insets bottom="20.0" />
                            </VBox.margin>
@@ -87,7 +87,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </CheckBox>
-                        <Label text="Interval per record">
+                        <Label text="Time record per loop">
                            <font>
                               <Font size="14.0" />
                            </font>
