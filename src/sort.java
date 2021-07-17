@@ -20,14 +20,11 @@ public class Sort implements RuntimeClock {
 
     // return milisecond
     public double nanoToMili(long startTimes, long endTimes) {
-        return (double) (endTimes - startTimes) / 1000000000;
+        return (double) (endTimes - startTimes) / 1000000;
     }
-
++
     /**
      * Insertion Sort
-     *
-     * @param <T>
-     * @param list
      */
     public ArrayList<Number> insertionSort() {
         ArrayList<Number> list = new ArrayList<>(this.array);
@@ -63,9 +60,6 @@ public class Sort implements RuntimeClock {
 
     /**
      * Insertion Sort
-     *
-     * @param <T>
-     * @param list
      */
     public ArrayList<Number> bubbleSort() {
         ArrayList<Number> list = new ArrayList<>(array);
@@ -99,8 +93,6 @@ public class Sort implements RuntimeClock {
 
     /**
      * Insertion Sort
-     * 
-     * @param <T>
      * @param list
      */
     public ArrayList<Number> selectionSort() {
@@ -138,8 +130,6 @@ public class Sort implements RuntimeClock {
 
     /**
      * Insertion Sort
-     *
-     * @param <T>
      * @param list
      */
     public ArrayList<Number> interChangeSort() {
@@ -169,44 +159,6 @@ public class Sort implements RuntimeClock {
         long stopTime = System.nanoTime();
         interchangesort_TotalRuntime = nanoToMili(startTime, stopTime);
         return list;
-    }
-
-    public static void main(String[] args) {
-        RandomArray rd = new RandomArray(5);
-
-        Sort sort = new Sort(rd.getArray(), 1);
-
-        System.out.println("------------insertionsort---------------");
-
-        System.out.println(sort.array);
-        sort.insertionSort();
-        System.out.println(sort.insertionSort());
-        System.out.println("Rum time: " + sort.insertionsort_TotalRuntime);
-        System.out.println("List time: " + sort.insertionsort_getLoopTime);
-
-        System.out.println("------------bubblesort---------------");
-        System.out.println(sort.array);
-        sort.bubbleSort();
-        System.out.println(sort.bubbleSort());
-        System.out.println("Rum time: " + sort.bubblesort_TotalRuntime);
-        System.out.println("List time: " + sort.bubblesort_getLoopTime);
-
-        System.out.println("-----------SELECTION---------------");
-        // System.out.println(rd.getArray());
-        System.out.println(sort.array);
-        sort.selectionSort();
-        System.out.println(sort.selectionSort());
-        System.out.println("Rum time: " + sort.selectionsort_TotalRuntime);
-        System.out.println("List time: " + sort.selectionsort_getLoopTime);
-
-        System.out.println("-----------InterChange---------------");
-        // System.out.println(rd.getArray());
-        System.out.println(sort.array);
-        sort.selectionSort();
-        System.out.println(sort.interChangeSort());
-        System.out.println("Rum time: " + sort.interchangesort_TotalRuntime);
-        System.out.println("List time: " + sort.interchangesort_getLoopTime);
-
     }
 
     // return runtime and looptimes here:
@@ -249,5 +201,4 @@ public class Sort implements RuntimeClock {
     public ArrayList<Number> selectionsort_getLoopTime() {
         return selectionsort_getLoopTime;
     }
-
 }

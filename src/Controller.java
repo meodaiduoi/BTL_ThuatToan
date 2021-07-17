@@ -204,3 +204,41 @@ public class Controller implements Initializable {
         linechart.getData().add(series_insertionsort);
     }
 }
+
+    // public static void main(String[] args) {
+    //     RandomArray rd = new RandomArray(5);
+
+    //     Sort sort = new Sort(rd.getArray(), 1);
+
+    //     System.out.println("------------insertionsort---------------");
+
+    //     System.out.println(sort.array);
+    //     sort.insertionSort();
+    //     System.out.println(sort.insertionSort());
+    //     System.out.println("Rum time: " + sort.insertionsort_TotalRuntime);
+    //     System.out.println("List time: " + sort.insertionsort_getLoopTime);
+
+    //     System.out.println("------------bubblesort---------------");
+    //     System.out.println(sort.array);
+    //     sort.bubbleSort();
+    //     System.out.println(sort.bubbleSort());
+    //     System.out.println("Rum time: " + sort.bubblesort_TotalRuntime);
+    //     System.out.println("List time: " + sort.bubblesort_getLoopTime);
+
+    //     System.out.println("-----------SELECTION---------------");
+    //     // System.out.println(rd.getArray());
+    //     System.out.println(sort.array);
+    //     sort.selectionSort();
+    //     System.out.println(sort.selectionSort());
+    //     System.out.println("Rum time: " + sort.selectionsort_TotalRuntime);
+    //     System.out.println("List time: " + sort.selectionsort_getLoopTime);
+
+    //     System.out.println("-----------InterChange---------------");
+    //     // System.out.println(rd.getArray());
+    //     System.out.println(sort.array);
+    //     sort.selectionSort();
+    //     System.out.println(sort.interChangeSort());
+    //     System.out.println("Rum time: " + sort.interchangesort_TotalRuntime);
+    //     System.out.println("List time: " + sort.interchangesort_getLoopTime);
+
+    // }
