@@ -106,6 +106,7 @@ public class Controller implements Initializable {
 
                 debugInfo("- Bubble sort:");
                 debugInfo("Finished time: " + sort.bubblesort_getTotalRuntime() + "ms");
+                debugInfo("Array sorted: " + sort.bubbleSort());
             }
 
             //interchange sort
