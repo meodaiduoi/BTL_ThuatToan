@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import javafx.event.ActionEvent;
 
@@ -61,9 +62,10 @@ public class Controller implements Initializable {
     XYChart.Series<String, Number> series_insertionsort = new XYChart.Series<String, Number>();
 
     // Eventhandle - Controller
-    private void debugInfo (String text) {
-        System.out.println(text);
+
+    void debugInfo(String text) {
         debug_output.appendText(text + "\n");
+        System.out.println(text);
     }
 
     @FXML
@@ -77,19 +79,17 @@ public class Controller implements Initializable {
         linechart.getData().removeAll(series_bubblesort, series_insertionsort, series_interchangesort, series_selectionsort);
 
         try {
-            debugInfo("--------------");
-
             int loop_interval = Integer.parseInt(interval.getText());
 
             RandomArray array = new RandomArray(Integer.parseInt(array_size.getText()), is_interger_array.isSelected());
             Sort sort = new Sort(array.getArray(), loop_interval);
 
-            debugInfo("Init array size: ");
-            //sorting option
+            debugInfo("-- Initialize new chart: --");
+            debugInfo("Array size: " + String.valueOf(Integer.parseInt(array_size.getText()) + 1));
+            debugInfo("Option: " + " Interger array = " + (String.valueOf(is_interger_array.isSelected())));
 
             //bubble sort
             if (bubblesort.isSelected()) {
-                debugInfo("bbsort on");
 
                 sort.bubbleSort();
                 sort.bubblesort_getTotalRuntime();
@@ -103,11 +103,13 @@ public class Controller implements Initializable {
 
                 linechart.setCreateSymbols(false);
                 linechart.getData().add(series_bubblesort);
+
+                debugInfo("- Bubble sort:");
+                debugInfo("Finished time: " + sort.bubblesort_getTotalRuntime() + "ms");
             }
 
             //interchange sort
             if (interchangesort.isSelected()) {
-                debugInfo("icsort on");
 
                 sort.interChangeSort();
                 sort.interchangesort_getTotalRuntime();
@@ -121,11 +123,13 @@ public class Controller implements Initializable {
 
                 linechart.setCreateSymbols(false);
                 linechart.getData().add(series_interchangesort);
+
+                debugInfo("- Interchange sort:");
+                debugInfo("Finished time: " + sort.interchangesort_getTotalRuntime() + "ms");
             }
 
             //selection sort
             if (selectionsort.isSelected()) {
-                debugInfo("sltsort on");
 
                 sort.selectionSort();
                 sort.selectionsort_getTotalRuntime();
@@ -139,11 +143,13 @@ public class Controller implements Initializable {
 
                 linechart.setCreateSymbols(false);
                 linechart.getData().add(series_selectionsort);
+
+                debugInfo("- Selection sort:");
+                debugInfo("Finished time: " + sort.selectionsort_getTotalRuntime() + "ms");
             }
 
             // insertion sort
             if (insertionsort.isSelected()) {
-                debugInfo("isertsort on");
 
                 sort.insertionSort();
                 sort.insertionsort_getTotalRuntime();
@@ -157,16 +163,19 @@ public class Controller implements Initializable {
 
                 linechart.setCreateSymbols(false);
                 linechart.getData().add(series_insertionsort);
+
+                debugInfo("- Insertion sort:");
+                debugInfo("Finished time: " + sort.insertionsort_getTotalRuntime() + "ms");
             }
         }
 
         catch (NumberFormatException E) {
-            debugInfo("Not A Number");
+            System.out.println("Not A Number");
         }
 
-        // catch (Exception E) {
-        //     System.out.println("Error ?");
-        // }
+        catch (Exception E) {
+            System.out.println("Error ?");
+        }
     }
 
 

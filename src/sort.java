@@ -22,7 +22,7 @@ public class Sort implements RuntimeClock {
     public double nanoToMili(long startTimes, long endTimes) {
         return (double) (endTimes - startTimes) / 1000000;
     }
-+
+
     /**
      * Insertion Sort
      */

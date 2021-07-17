@@ -74,7 +74,7 @@
                               <Insets bottom="10.0" />
                            </VBox.margin>
                         </Label>
-                        <TextField fx:id="array_size" prefHeight="0.0" prefWidth="149.0" promptText="Array size">
+                        <TextField fx:id="array_size" prefHeight="0.0" prefWidth="149.0" promptText="Array size" text="20">
                            <VBox.margin>
                               <Insets bottom="10.0" />
                            </VBox.margin>
@@ -95,7 +95,7 @@
                               <Insets bottom="10.0" />
                            </VBox.margin>
                         </Label>
-                        <TextField fx:id="interval" promptText="Interval">
+                        <TextField fx:id="interval" promptText="Interval" text="1">
                            <VBox.margin>
                               <Insets bottom="20.0" />
                            </VBox.margin>
