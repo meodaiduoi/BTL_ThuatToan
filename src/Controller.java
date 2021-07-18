@@ -32,9 +32,20 @@ public class Controller implements Initializable {
     @FXML
     private TextArea debug_output;
 
+    // array cfg
     @FXML
     private CheckBox is_interger_array;
 
+    @FXML
+    private CheckBox is_reversed;
+
+    @FXML
+    private CheckBox is_sorted;
+
+    @FXML
+    private CheckBox is_haft_sorted;
+
+    // sort cfg
     @FXML
     private CheckBox bubblesort;
 
@@ -81,14 +92,14 @@ public class Controller implements Initializable {
         try {
             int loop_interval = Integer.parseInt(interval.getText());
 
-            RandomArray array = new RandomArray(Integer.parseInt(array_size.getText()), is_interger_array.isSelected(), , false, false, false);
+            RandomArray array = new RandomArray(Integer.parseInt(array_size.getText()), is_interger_array.isSelected(), is_sorted.isSelected(), is_reversed.isSelected(), is_haft_sorted.isSelected());
             Sort sort = new Sort(array.getArray(), loop_interval);
 
             debugInfo("-- Initialize new chart: --");
-            debugInfo("Array size: " + String.valueOf(Integer.parseInt(array_size.getText()) + 1));
+            debugInfo("Array size: " + array_size.getText());
             debugInfo("Option: " + " Interger array = " + (String.valueOf(is_interger_array.isSelected())));
 
-            //bubble sort
+            // bubble sort
             if (bubblesort.isSelected()) {
 
                 sort.bubbleSort();
@@ -106,10 +117,9 @@ public class Controller implements Initializable {
 
                 debugInfo("- Bubble sort:");
                 debugInfo("Finished time: " + sort.bubblesort_getTotalRuntime() + "ms");
-                debugInfo("Array sorted: " + sort.bubbleSort());
             }
 
-            //interchange sort
+            // interchange sort
             if (interchangesort.isSelected()) {
 
                 sort.interChangeSort();
@@ -192,6 +202,17 @@ public class Controller implements Initializable {
             }
             if (!debug.isSelected()) {
                 debug_output.setVisible(false);
+            }
+        });
+
+        is_sorted.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            if (is_sorted.isSelected()) {
+                is_haft_sorted.setDisable(false);
+                is_reversed.setDisable(false);
+            }
+            if (!is_sorted.isSelected()) {
+                is_haft_sorted.setDisable(true);
+                is_reversed.setDisable(true);
             }
         });
 
