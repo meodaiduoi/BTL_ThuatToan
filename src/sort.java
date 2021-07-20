@@ -3,7 +3,11 @@ import java.util.ArrayList;
 public class Sort implements RuntimeClock {
 
     private ArrayList<Number> array = new ArrayList<>();
-    private int loop_interval;
+    private int loop_interval = 1;
+
+    public Sort(ArrayList<Number> array) {
+        this.array = array;
+    }
 
     public Sort(ArrayList<Number> array, int loop_interval) {
         this.array = array;

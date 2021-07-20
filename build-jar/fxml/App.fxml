@@ -53,19 +53,19 @@
 
 <VBox prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
   <children>
-      <HBox alignment="CENTER_LEFT" fillHeight="false" prefHeight="35.0" prefWidth="800.0">
+      <HBox alignment="CENTER" fillHeight="false" prefHeight="35.0" prefWidth="800.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Array Configuration">
                <font>
-                  <Font size="20.0" />
+                  <Font size="17.0" />
                </font>
                <HBox.margin>
-                  <Insets left="20.0" />
+                  <Insets left="10.0" right="10.0" />
                </HBox.margin>
             </Text>
-            <TextField fx:id="array_size" alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" prefHeight="25.0" prefWidth="107.0" promptText="Array size" text="20" HBox.hgrow="NEVER">
+            <TextField fx:id="array_size" alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" prefHeight="25.0" prefWidth="107.0" promptText="Array size" text="100" HBox.hgrow="NEVER">
                <HBox.margin>
-                  <Insets left="15.0" />
+                  <Insets left="10.0" right="10.0" />
                </HBox.margin>
             </TextField>
             <CheckBox fx:id="is_interger_array" mnemonicParsing="false" selected="true" text="Interger array">
@@ -73,33 +73,38 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
                <HBox.margin>
-                  <Insets left="15.0" />
+                  <Insets left="10.0" right="10.0" />
                </HBox.margin>
             </CheckBox>
-            <CheckBox fx:id="is_sorted" mnemonicParsing="false" selected="true" text="Sorted">
+            <CheckBox fx:id="is_sorted" mnemonicParsing="false" text="Sorted">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
                <HBox.margin>
-                  <Insets left="15.0" />
+                  <Insets left="10.0" right="10.0" />
                </HBox.margin>
             </CheckBox>
-            <CheckBox fx:id="is_haft_sorted" mnemonicParsing="false" selected="true" text="Haft sorted">
+            <CheckBox fx:id="is_haft_sorted" disable="true" mnemonicParsing="false" text="Haft sorted">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
                <HBox.margin>
-                  <Insets left="15.0" />
+                  <Insets left="10.0" right="10.0" />
                </HBox.margin>
             </CheckBox>
-            <CheckBox fx:id="is_reversed" mnemonicParsing="false" selected="true" text="Reversed">
+            <CheckBox fx:id="is_reversed" disable="true" mnemonicParsing="false" text="Reversed">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
                <HBox.margin>
-                  <Insets left="15.0" />
+                  <Insets left="10.0" right="10.0" />
                </HBox.margin>
             </CheckBox>
+            <Button fx:id="about" mnemonicParsing="false" onAction="#handleButton_about" prefHeight="25.0" prefWidth="65.0" text="About">
+               <HBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </HBox.margin>
+            </Button>
          </children>
       </HBox>
       <SplitPane dividerPositions="0.24344978165938866" VBox.vgrow="ALWAYS">
@@ -108,9 +113,9 @@
                <children>
                   <VBox layoutX="25.0" layoutY="28.0" prefHeight="509.0" prefWidth="174.0" AnchorPane.bottomAnchor="26.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="28.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Array Configuration">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Linechart Setting">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="17.0" />
                            </font>
                         </Text>
                         <Label text="Time record per loop">
@@ -160,12 +165,12 @@
                         </CheckBox>
                         <CheckBox fx:id="insertionsort" mnemonicParsing="false" text="Insertion sort">
                            <VBox.margin>
-                              <Insets bottom="10.0" />
+                              <Insets bottom="20.0" />
                            </VBox.margin>
                         </CheckBox>
                         <Button fx:id="initchart" alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#handleButton_initgraph" text="Initialize graph">
                            <VBox.margin>
-                              <Insets bottom="10.0" />
+                              <Insets bottom="30.0" />
                            </VBox.margin>
                            <cursor>
                               <Cursor fx:constant="HAND" />

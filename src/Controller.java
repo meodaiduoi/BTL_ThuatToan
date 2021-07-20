@@ -1,23 +1,24 @@
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-
-import java.net.URL;
-import java.util.ResourceBundle;
-import java.util.ArrayList;
-import java.util.Arrays;
-
 import javafx.event.ActionEvent;
 
+import javafx.fxml.FXMLLoader;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.scene.Parent;
+import javafx.scene.image.Image;
 
-
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 public class Controller implements Initializable {
 
     public Controller() {}
@@ -65,6 +66,12 @@ public class Controller implements Initializable {
     private Button initchart;
 
     @FXML
+    private Button about;
+
+    @FXML
+    private Hyperlink github;
+
+    @FXML
     private LineChart<String, Number> linechart;
 
     XYChart.Series<String, Number> series_bubblesort = new XYChart.Series<String, Number>();
@@ -78,6 +85,20 @@ public class Controller implements Initializable {
         debug_output.appendText(text + "\n");
         System.out.println(text);
     }
+
+    @FXML
+    private void handleButton_about (ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("fxml/About.fxml"));
+        Stage stage = new Stage();
+
+        stage.setResizable(false);
+        stage.getIcons().add(new Image("icon/icon.png"));
+        stage.setTitle("About");
+
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
 
     @FXML
     private void handleButton_initgraph (ActionEvent event) {
@@ -235,41 +256,3 @@ public class Controller implements Initializable {
         linechart.getData().add(series_insertionsort);
     }
 }
-
-    // public static void main(String[] args) {
-    //     RandomArray rd = new RandomArray(5);
-
-    //     Sort sort = new Sort(rd.getArray(), 1);
-
-    //     System.out.println("------------insertionsort---------------");
-
-    //     System.out.println(sort.array);
-    //     sort.insertionSort();
-    //     System.out.println(sort.insertionSort());
-    //     System.out.println("Rum time: " + sort.insertionsort_TotalRuntime);
-    //     System.out.println("List time: " + sort.insertionsort_getLoopTime);
-
-    //     System.out.println("------------bubblesort---------------");
-    //     System.out.println(sort.array);
-    //     sort.bubbleSort();
-    //     System.out.println(sort.bubbleSort());
-    //     System.out.println("Rum time: " + sort.bubblesort_TotalRuntime);
-    //     System.out.println("List time: " + sort.bubblesort_getLoopTime);
-
-    //     System.out.println("-----------SELECTION---------------");
-    //     // System.out.println(rd.getArray());
-    //     System.out.println(sort.array);
-    //     sort.selectionSort();
-    //     System.out.println(sort.selectionSort());
-    //     System.out.println("Rum time: " + sort.selectionsort_TotalRuntime);
-    //     System.out.println("List time: " + sort.selectionsort_getLoopTime);
-
-    //     System.out.println("-----------InterChange---------------");
-    //     // System.out.println(rd.getArray());
-    //     System.out.println(sort.array);
-    //     sort.selectionSort();
-    //     System.out.println(sort.interChangeSort());
-    //     System.out.println("Rum time: " + sort.interchangesort_TotalRuntime);
-    //     System.out.println("List time: " + sort.interchangesort_getLoopTime);
-
-    // }

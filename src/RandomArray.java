@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Collections;
-import java.util.List;
 public class RandomArray {
     private int size = 10;
     private ArrayList<Number> array = new ArrayList<>();
@@ -12,6 +11,11 @@ public class RandomArray {
     RandomArray (int size) {
         this.size = size;
         arrayGenerator(true, false, false, false);
+    }
+
+    RandomArray (int size, boolean isInt) {
+        this.size = size;
+        arrayGenerator(isInt, false, false, false);
     }
 
     RandomArray(int size, boolean isInt, boolean isSorted, boolean isReversed, boolean isHaftSorted){
@@ -26,8 +30,8 @@ public class RandomArray {
         Random rd = new Random();
         if (isInt) {
             for (int i = 0; i < size; i++) {
-                // array.add(rd.nextInt((100 + 100) + 1) - 100);
-                array.add(rd.nextInt());
+                array.add(rd.nextInt((100 + 100) + 1) - 100);
+                //array.add(rd.nextInt());
             }
         }
 

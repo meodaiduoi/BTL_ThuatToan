@@ -11,5 +11,10 @@
             "d:\\Program File\\Zulu\\zulu-16\\lib\\javafx.media.jar",
             "d:\\Program File\\java\\javafx-sdk-16\\lib\\javafx.graphics.jar"
         ]
-    }
+    },
+    "java.project.outputPath": "build-jar",
+    "java.project.sourcePaths": [
+        "src",
+        "app/src/main/java/visualizer/app"
+    ]
 }
