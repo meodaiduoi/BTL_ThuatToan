@@ -175,7 +175,7 @@ public class Sort implements RuntimeClock {
 
     @Override
     public double interchangesort_getTotalRuntime() {
-        return insertionsort_TotalRuntime;
+        return interchangesort_TotalRuntime;
     }
 
     @Override

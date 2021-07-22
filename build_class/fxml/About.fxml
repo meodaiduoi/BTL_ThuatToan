@@ -48,14 +48,14 @@
                <children>
                   <HBox alignment="CENTER" fillHeight="false" prefHeight="52.0" prefWidth="274.0" VBox.vgrow="NEVER">
                      <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="35.0" prefWidth="169.0" text="About: ver 1.0">
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="35.0" prefWidth="169.0" text="Nhóm 2 - 64CS3">
                            <font>
                               <Font name="System Bold" size="22.0" />
                            </font>
                         </Label>
                      </children>
                   </HBox>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Developed by:">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Phân tích và thiết kế thuật toán">
                      <VBox.margin>
                         <Insets bottom="10.0" />
                      </VBox.margin>
@@ -63,7 +63,7 @@
                         <Font size="17.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Dr4kun: Tech Lead - UI">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pham Hoang Dang Trung">
                      <VBox.margin>
                         <Insets bottom="10.0" />
                      </VBox.margin>
@@ -71,22 +71,22 @@
                         <Font size="14.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Duong Cong Son: Team Leader - Algorithms">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Duong Cong Son">
                      <VBox.margin>
-                        <Insets bottom="20.0" />
+                        <Insets bottom="10.0" />
                      </VBox.margin>
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Documenting:">
+                  <!-- <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Documenting:">
                      <VBox.margin>
                         <Insets bottom="10.0" />
                      </VBox.margin>
                      <font>
                         <Font size="17.0" />
                      </font>
-                  </Text>
+                  </Text> -->
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Hoang Thanh Tu">
                      <VBox.margin>
                         <Insets bottom="10.0" />

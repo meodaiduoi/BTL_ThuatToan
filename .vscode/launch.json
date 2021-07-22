@@ -8,6 +8,13 @@
             "type": "java",
             "name": "Launch App",
             "request": "launch",
+            "mainClass": "App",
+            "projectName": "BTL_ThuatToan_df6778e5"
+        },
+        {
+            "type": "java",
+            "name": "Launch App",
+            "request": "launch",
             "mainClass": "java.com.visuallizer.App",
             "projectName": "BTL_ThuatToan_6adb5ee9"
         },
