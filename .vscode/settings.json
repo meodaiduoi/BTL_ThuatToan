@@ -12,9 +12,10 @@
             "d:\\Program File\\java\\javafx-sdk-16\\lib\\javafx.graphics.jar"
         ]
     },
-    "java.project.outputPath": "build-jar",
+    "java.project.outputPath": "build_class",
     "java.project.sourcePaths": [
         "src",
-        "app/src/main/java/visualizer/app"
-    ]
+        "src_2"
+    ],
+    "java.dependency.packagePresentation": "hierarchical"
 }

@@ -1,4 +1,7 @@
+//package java.com.visuallizer;
+
 import java.util.ArrayList;
+
 interface RuntimeClock {
     double bubblesort_getTotalRuntime ();
     double interchangesort_getTotalRuntime ();
