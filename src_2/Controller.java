@@ -1,3 +1,5 @@
+//package java.com.visuallizer;
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.LineChart;
