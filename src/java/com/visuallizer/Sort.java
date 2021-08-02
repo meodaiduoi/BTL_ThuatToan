@@ -1,4 +1,4 @@
-//package java.com.visuallizer;
+package java.com.visuallizer;
 
 import java.util.ArrayList;
 

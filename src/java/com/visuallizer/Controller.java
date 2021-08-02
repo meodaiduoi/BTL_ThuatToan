@@ -1,4 +1,4 @@
-//package java.com.visuallizer;
+package java.com.visuallizer;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
