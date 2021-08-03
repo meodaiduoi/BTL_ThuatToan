@@ -1,4 +1,4 @@
-package java.com.visuallizer;
+package search;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
