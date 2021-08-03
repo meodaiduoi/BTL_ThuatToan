@@ -15,11 +15,17 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         //loader
-        Parent root = FXMLLoader.load(getClass().getResource("App.fxml"));
+
+        // fallback code incase fuck you
+        // FXMLLoader loader = new FXMLLoader();
+        // loader.setLocation(getClass().getResource("/fxml/hello.fxml"));
+        // Parent root = loader.load();
+
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/hello.fxml"));
 
         //Window configuration
         stage.setTitle("Algorithm speed visuallizer");
-        stage.getIcons().add(new Image("icon.png"));
+        //stage.getIcons().add(new Image("icon.png"));
         stage.setMinHeight(450);
         stage.setMinWidth(600);
 
