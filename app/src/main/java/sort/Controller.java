@@ -71,9 +71,6 @@ public class Controller implements Initializable {
     private Button about;
 
     @FXML
-    private Hyperlink github;
-
-    @FXML
     private LineChart<String, Number> linechart;
 
     XYChart.Series<String, Number> series_bubblesort = new XYChart.Series<String, Number>();
@@ -90,11 +87,11 @@ public class Controller implements Initializable {
 
     @FXML
     private void handleButton_about (ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("fxml/About.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/sort/fxml/About.fxml"));
         Stage stage = new Stage();
 
         stage.setResizable(false);
-        stage.getIcons().add(new Image("icon/icon.png"));
+        stage.getIcons().add(new Image("/sort/icon/icon.png"));
         stage.setTitle("About");
 
         stage.setScene(new Scene(root));

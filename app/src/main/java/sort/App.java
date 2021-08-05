@@ -21,11 +21,11 @@ public class App extends Application {
         // loader.setLocation(getClass().getResource("/fxml/hello.fxml"));
         // Parent root = loader.load();
 
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/hello.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/sort/fxml/App.fxml"));
 
         //Window configuration
         stage.setTitle("Algorithm speed visuallizer");
-        //stage.getIcons().add(new Image("icon.png"));
+        stage.getIcons().add(new Image("/sort/icon/icon.png"));
         stage.setMinHeight(450);
         stage.setMinWidth(600);
 
