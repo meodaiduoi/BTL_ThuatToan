@@ -1,0 +1,1 @@
+set JAVA_HOME="D:\Program File\java\Zulu\zulu16.30.15-ca-fx-jdk16.0.1-win_x64"

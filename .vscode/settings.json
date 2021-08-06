@@ -1,21 +1,8 @@
 {
-    "java.project.referencedLibraries": {
-        "include": [
-            "lib/**/*.jar",
-            "d:\\Program File\\Zulu\\zulu-16\\lib\\jrt-fs.jar"
-        ],
-        "exclude": [
-            "d:\\Program File\\Zulu\\zulu-16\\lib\\javafx-swt.jar",
-            "d:\\Program File\\java\\javafx-sdk-16\\lib\\javafx.media.jar",
-            "d:\\Program File\\Zulu\\zulu-16\\lib\\javafx.swing.jar",
-            "d:\\Program File\\Zulu\\zulu-16\\lib\\javafx.media.jar",
-            "d:\\Program File\\java\\javafx-sdk-16\\lib\\javafx.graphics.jar"
-        ]
-    },
-    "java.project.outputPath": "build_class",
     "java.project.sourcePaths": [
-        "src",
-        "src_2"
+        "src"
     ],
-    "java.dependency.packagePresentation": "hierarchical"
+    "java.dependency.packagePresentation": "hierarchical",
+    "java.configuration.updateBuildConfiguration": "interactive"
 }
+

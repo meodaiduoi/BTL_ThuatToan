@@ -1,4 +1,5 @@
-package java.com.visuallizer;
+package sort;
+
 
 import java.util.ArrayList;
 

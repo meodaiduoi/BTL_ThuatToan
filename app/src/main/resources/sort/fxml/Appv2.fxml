@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="478.0" prefWidth="922.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TabPane prefHeight="441.0" prefWidth="922.0" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+        <tabs>
+          <Tab text="Sort algorithm">
+               <content>
+                  <HBox prefHeight="236.0" prefWidth="600.0">
+                     <children>
+                        <VBox maxWidth="300.0" prefWidth="200.0">
+                           <children>
+                              <HBox alignment="CENTER">
+                                 <VBox.margin>
+                                    <Insets top="30.0" />
+                                 </VBox.margin>
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Array Configuration">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" VBox.vgrow="NEVER">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Array size:">
+                                       <HBox.margin>
+                                          <Insets right="15.0" />
+                                       </HBox.margin>
+                                    </Text>
+                                    <TextField fx:id="array_size1" alignment="CENTER" maxWidth="95.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="25.0" prefWidth="124.0" promptText="Array size" text="100" />
+                                 </children>
+                              </HBox>
+                              <AnchorPane prefHeight="337.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <VBox layoutX="20.0" layoutY="20.0" prefHeight="59.0" prefWidth="126.0">
+                                       <children>
+                                          <CheckBox mnemonicParsing="false" text="Intergel array">
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </CheckBox>
+                                          <CheckBox mnemonicParsing="false" text="Sorted">
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </CheckBox>
+                                          <CheckBox disable="true" mnemonicParsing="false" text="Nearly sorted">
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </CheckBox>
+                                          <CheckBox disable="true" mnemonicParsing="false" text="Reversed">
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </CheckBox>
+                                       </children>
+                                    </VBox>
+                                    <TextArea layoutX="20.0" layoutY="154.0" prefHeight="163.0" prefWidth="171.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="154.0" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </VBox>
+                        <LineChart prefWidth="291.0" title="      Sort algorithm comparison graph" HBox.hgrow="ALWAYS">
+                           <xAxis>
+                              <CategoryAxis label="Total loops" side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis label="Runtime (ms)" side="LEFT" />
+                           </yAxis>
+                           <HBox.margin>
+                              <Insets bottom="15.0" left="30.0" right="30.0" top="30.0" />
+                           </HBox.margin>
+                        </LineChart>
+                        <VBox maxWidth="300.0" prefHeight="419.0" prefWidth="200.0" HBox.hgrow="NEVER">
+                           <children>
+                              <HBox alignment="CENTER">
+                                 <VBox.margin>
+                                    <Insets top="30.0" />
+                                 </VBox.margin>
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Linechart Setting">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" VBox.vgrow="NEVER">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Insterval:">
+                                       <HBox.margin>
+                                          <Insets right="15.0" />
+                                       </HBox.margin>
+                                    </Text>
+                                    <TextField fx:id="interval" alignment="CENTER" maxWidth="95.0" prefWidth="150.0" promptText="Interval" text="1" />
+                                 </children>
+                              </HBox>
+                              <AnchorPane prefHeight="361.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <VBox layoutX="14.0" layoutY="14.0" prefHeight="85.0" prefWidth="152.0">
+                                       <children>
+                                          <CheckBox mnemonicParsing="false" text="Bubble sort">
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </CheckBox>
+                                          <CheckBox mnemonicParsing="false" text="Interchange sort">
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </CheckBox>
+                                          <CheckBox mnemonicParsing="false" text="Insertion sort">
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </CheckBox>
+                                          <CheckBox mnemonicParsing="false" text="Selection sort">
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </CheckBox>
+                                          <CheckBox mnemonicParsing="false" text="Insertion sort">
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </CheckBox>
+                                          <Button mnemonicParsing="false" text="Initialize graph">
+                                             <VBox.margin>
+                                                <Insets top="30.0" />
+                                             </VBox.margin>
+                                          </Button>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </content>
+            </Tab>
+            <Tab text="Sort algorithm">
+               <content>
+                  <HBox prefHeight="236.0" prefWidth="600.0">
+                     <children>
+                        <VBox maxWidth="300.0" prefWidth="200.0">
+                           <children>
+                              <HBox alignment="CENTER">
+                                 <VBox.margin>
+                                    <Insets top="30.0" />
+                                 </VBox.margin>
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Array Configuration">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <AnchorPane prefHeight="95.0" prefWidth="200.0">
+                                 <children>
+                                    <Text layoutX="20.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start size:" />
+                                    <TextField fx:id="array_size" alignment="CENTER" layoutX="90.0" layoutY="14.0" maxWidth="90.0" prefWidth="90.0" promptText="Array size" text="2" />
+                                    <Text layoutX="22.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="End size:" />
+                                    <TextField fx:id="array_size2" alignment="CENTER" layoutX="90.0" layoutY="46.0" maxWidth="90.0" prefWidth="90.0" promptText="Array size" text="100" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="337.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <VBox layoutX="20.0" layoutY="20.0" prefHeight="59.0" prefWidth="126.0">
+                                       <children>
+                                          <CheckBox mnemonicParsing="false" text="Intergel array">
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </CheckBox>
+                                          <CheckBox mnemonicParsing="false" text="Sorted">
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </CheckBox>
+                                          <CheckBox disable="true" mnemonicParsing="false" text="Nearly sorted">
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </CheckBox>
+                                          <CheckBox disable="true" mnemonicParsing="false" text="Reversed">
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </CheckBox>
+                                       </children>
+                                    </VBox>
+                                    <TextArea layoutX="20.0" layoutY="154.0" prefHeight="163.0" prefWidth="171.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="154.0" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </VBox>
+                        <LineChart prefWidth="291.0" title="      Search algorithm comparison graph" HBox.hgrow="ALWAYS">
+                           <xAxis>
+                              <CategoryAxis label="Total loops" side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis label="Runtime (ms)" side="LEFT" />
+                           </yAxis>
+                           <HBox.margin>
+                              <Insets bottom="15.0" left="30.0" right="30.0" top="30.0" />
+                           </HBox.margin>
+                        </LineChart>
+                        <VBox maxWidth="300.0" prefHeight="419.0" prefWidth="200.0" HBox.hgrow="NEVER">
+                           <children>
+                              <HBox alignment="CENTER">
+                                 <VBox.margin>
+                                    <Insets top="30.0" />
+                                 </VBox.margin>
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Linechart Setting">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" VBox.vgrow="NEVER">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Insterval:">
+                                       <HBox.margin>
+                                          <Insets right="15.0" />
+                                       </HBox.margin>
+                                    </Text>
+                                    <TextField fx:id="interval1" alignment="CENTER" maxWidth="95.0" prefWidth="150.0" promptText="Interval" text="1" />
+                                 </children>
+                              </HBox>
+                              <AnchorPane prefHeight="361.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <VBox layoutX="14.0" layoutY="14.0" prefHeight="85.0" prefWidth="152.0">
+                                       <children>
+                                          <CheckBox mnemonicParsing="false" text="Binary search">
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </CheckBox>
+                                          <CheckBox mnemonicParsing="false" text="Min-max search">
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </CheckBox>
+                                          <CheckBox mnemonicParsing="false" text="Insertion sort">
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </CheckBox>
+                                          <CheckBox mnemonicParsing="false" text="search">
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </CheckBox>
+                                          <Button mnemonicParsing="false" text="Initialize graph">
+                                             <VBox.margin>
+                                                <Insets top="30.0" />
+                                             </VBox.margin>
+                                          </Button>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </content>
+            </Tab>
+            <Tab text="About">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox alignment="TOP_CENTER" layoutX="181.0" layoutY="86.0" prefHeight="247.0" prefWidth="561.0" AnchorPane.bottomAnchor="86.0" AnchorPane.leftAnchor="181.0" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="86.0">
+                           <children>
+                              <VBox maxHeight="376.0" maxWidth="339.0" minHeight="329.0" prefHeight="332.0" prefWidth="339.0">
+                                <children>
+                                    <VBox prefHeight="286.0" prefWidth="274.0">
+                                       <children>
+                                          <HBox alignment="CENTER" fillHeight="false" prefHeight="52.0" prefWidth="274.0" VBox.vgrow="NEVER">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="35.0" prefWidth="169.0" text="About: ver 1.0">
+                                                   <font>
+                                                      <Font name="System Bold" size="22.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Developed by:">
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font size="17.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Dr4kun: Tech Lead - UI">
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Duong Cong Son: Team Leader - Algorithms">
+                                             <VBox.margin>
+                                                <Insets bottom="20.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Documenting:">
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font size="17.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Hoang Thanh Tu">
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Trinh Ngoc Duong">
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Viet Quoc bui">
+                                             <VBox.margin>
+                                                <Insets bottom="30.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </VBox>
+                                </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="922.0" VBox.vgrow="NEVER">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Status">
+               <HBox.margin>
+                  <Insets left="15.0" />
+               </HBox.margin></Text>
+         </children>
+      </HBox>
+   </children>
+</VBox>
