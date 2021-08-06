@@ -1,5 +1,6 @@
-package sort;
+package main;
 
+import arraygen.RandomArray;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -21,16 +22,18 @@ public class App extends Application {
         // loader.setLocation(getClass().getResource("/fxml/hello.fxml"));
         // Parent root = loader.load();
 
-        Parent root = FXMLLoader.load(getClass().getResource("/sort/fxml/App.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Appv2.fxml"));
 
         //Window configuration
         stage.setTitle("Algorithm speed visuallizer");
-        stage.getIcons().add(new Image("/sort/icon/icon.png"));
-        stage.setMinHeight(450);
-        stage.setMinWidth(600);
+        stage.getIcons().add(new Image("/icon/icon.png"));
+        stage.setMinHeight(540);
+        stage.setMinWidth(960);
 
         //stage show
         stage.setScene(new Scene(root, 800, 600));
         stage.show();
+
+        RandomArray array = new RandomArray();
     }
 }

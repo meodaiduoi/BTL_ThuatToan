@@ -1,4 +1,4 @@
-package sort;
+package main;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -13,6 +13,7 @@ import javafx.event.ActionEvent;
 
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
+import sort.Sort;
 import javafx.scene.Scene;
 import javafx.scene.Parent;
 import javafx.scene.image.Image;
@@ -20,6 +21,8 @@ import javafx.scene.image.Image;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import arraygen.RandomArray;
 
 public class Controller implements Initializable {
 

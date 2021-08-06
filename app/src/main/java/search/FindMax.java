@@ -1,10 +1,10 @@
-
+package search;
 import java.util.ArrayList;
 
-public class findMax implements interfaceFindMax {
+public class FindMax implements FindMaxImpl {
     private ArrayList<Integer> array = new ArrayList<>();
 
-    public findMax(ArrayList<Integer> array) {
+    public FindMax(ArrayList<Integer> array) {
         this.array = array;
     }
 
@@ -45,7 +45,7 @@ public class findMax implements interfaceFindMax {
         ArrayList<Number> list = new ArrayList<>(array);
         Number localMax = list.get(low);
         for (int i = 1; i <= high; i++) {
-            if((localMax.doubleValue() - list.get(i).doubleValue()) < 0) 
+            if((localMax.doubleValue() - list.get(i).doubleValue()) < 0)
                 localMax = list.get(i);
         }
         long stopTime = System.nanoTime();
@@ -54,7 +54,7 @@ public class findMax implements interfaceFindMax {
     }
 
 
-    
+
 
     public double binaryMax_getTotalRuntime() {
         return binaryMax_TotalRuntime;
@@ -70,11 +70,23 @@ public class findMax implements interfaceFindMax {
         a.add(5);
         a.add(4);
 
-        findMax s = new findMax(a);
+        FindMax s = new FindMax(a);
         System.out.println(s.binaryMax(0, a.size() - 1));
         System.out.println(s.binaryMax_getTotalRuntime());
         System.out.println(s.linearMax(0, a.size() - 1));
         System.out.println(s.linearMax_getTotalRuntime());
-        
+
+    }
+
+    @Override
+    public double binaryMax_TotalRuntime() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public double linearMax_TotalRuntime() {
+        // TODO Auto-generated method stub
+        return 0;
     }
 }

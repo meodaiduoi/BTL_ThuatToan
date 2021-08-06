@@ -1,9 +1,11 @@
+package search;
+
 import java.util.ArrayList;
 
-public class search implements interfaceSearch {
+public class Search implements SearchImpl {
     private ArrayList<Integer> array = new ArrayList<>();
 
-    public search(ArrayList<Integer> array) {
+    public Search(ArrayList<Integer> array) {
         this.array = array;
     }
 
@@ -17,22 +19,22 @@ public class search implements interfaceSearch {
 
     public Number binarySearch(Number key, int low, int high) {
         ArrayList<Integer> list = new ArrayList<>(this.array);
-        
+
         long startTime = System.nanoTime();
         if ( key == null ) {
             binarySearch_TotalRuntime = 0;
             return -1;
         }
-  
+
         if( low > high  ) {
             long stopTime = System.nanoTime();
             binarySearch_TotalRuntime = nanoToMili(startTime, stopTime);
             return -1;
         }
-        
-    
+
+
         int mid = low+(high-low)/2;
-    
+
         if( key.doubleValue() - list.get(mid).doubleValue()  > 0 )
             return binarySearch(key, mid+1, high);
         else if( key.doubleValue()   -  list.get(mid).doubleValue()  < 0 )
@@ -53,7 +55,7 @@ public class search implements interfaceSearch {
                 linearSearch_TotalRuntime = nanoToMili(startTime, stopTime);
                 return i;
             }
-                
+
         } // for
         long stopTime = System.nanoTime();
         linearSearch_TotalRuntime = nanoToMili(startTime, stopTime);
@@ -74,8 +76,8 @@ public class search implements interfaceSearch {
         a.add(2);
         a.add(4);
 
-        search s = new search(a);
-        
+        Search s = new Search(a);
+
         // s.le
         System.out.println(s.binarySearch(1, 0, a.size() -1));
         System.out.println(s.binarySearch_getTotalRuntime());

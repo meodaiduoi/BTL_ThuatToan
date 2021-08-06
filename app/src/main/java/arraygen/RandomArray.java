@@ -1,13 +1,13 @@
-package sort;
-
+package arraygen;
 
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Collections;
+
 public class RandomArray {
     private int size = 10;
     private ArrayList<Number> array = new ArrayList<>();
-    RandomArray () {
+    public RandomArray () {
         arrayGenerator(true, false, false, false);
     }
 

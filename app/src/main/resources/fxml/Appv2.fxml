@@ -17,7 +17,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="478.0" prefWidth="922.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="478.0" prefWidth="922.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controller">
    <children>
       <TabPane prefHeight="441.0" prefWidth="922.0" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
         <tabs>
@@ -145,7 +145,7 @@
                                                 <Insets top="10.0" />
                                              </VBox.margin>
                                           </CheckBox>
-                                          <CheckBox mnemonicParsing="false" text="Insertion sort">
+                                          <CheckBox mnemonicParsing="false" text="Merge sort">
                                              <VBox.margin>
                                                 <Insets top="10.0" />
                                              </VBox.margin>
@@ -165,7 +165,7 @@
                   </HBox>
                </content>
             </Tab>
-            <Tab text="Sort algorithm">
+            <Tab text="Search algorithm">
                <content>
                   <HBox prefHeight="236.0" prefWidth="600.0">
                      <children>
@@ -193,31 +193,7 @@
                               </AnchorPane>
                               <AnchorPane prefHeight="337.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <VBox layoutX="20.0" layoutY="20.0" prefHeight="59.0" prefWidth="126.0">
-                                       <children>
-                                          <CheckBox mnemonicParsing="false" text="Intergel array">
-                                             <VBox.margin>
-                                                <Insets top="10.0" />
-                                             </VBox.margin>
-                                          </CheckBox>
-                                          <CheckBox mnemonicParsing="false" text="Sorted">
-                                             <VBox.margin>
-                                                <Insets top="10.0" />
-                                             </VBox.margin>
-                                          </CheckBox>
-                                          <CheckBox disable="true" mnemonicParsing="false" text="Nearly sorted">
-                                             <VBox.margin>
-                                                <Insets top="10.0" />
-                                             </VBox.margin>
-                                          </CheckBox>
-                                          <CheckBox disable="true" mnemonicParsing="false" text="Reversed">
-                                             <VBox.margin>
-                                                <Insets top="10.0" />
-                                             </VBox.margin>
-                                          </CheckBox>
-                                       </children>
-                                    </VBox>
-                                    <TextArea layoutX="20.0" layoutY="154.0" prefHeight="163.0" prefWidth="171.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="154.0" />
+                                    <TextArea layoutX="15.0" layoutY="18.0" prefHeight="264.0" prefWidth="175.0" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="18.0" />
                                  </children>
                               </AnchorPane>
                            </children>
@@ -274,12 +250,7 @@
                                                 <Insets top="10.0" />
                                              </VBox.margin>
                                           </CheckBox>
-                                          <CheckBox mnemonicParsing="false" text="Insertion sort">
-                                             <VBox.margin>
-                                                <Insets top="10.0" />
-                                             </VBox.margin>
-                                          </CheckBox>
-                                          <CheckBox mnemonicParsing="false" text="search">
+                                          <CheckBox mnemonicParsing="false" text="??? search">
                                              <VBox.margin>
                                                 <Insets top="10.0" />
                                              </VBox.margin>
