@@ -22,7 +22,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import arraygen.RandomArray;
+import dataset.RandomArray;
 
 public class Controller implements Initializable {
 

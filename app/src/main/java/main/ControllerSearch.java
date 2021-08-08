@@ -22,8 +22,8 @@
 // import java.net.URL;
 // import java.util.ResourceBundle;
 
-// public class ControllerV2 implements Initializable {
-//     public ControllerV2() {}
+// public class ControllerSearch implements Initializable{
+//     public ControllerSearch() {}
 
 //     // Binding
 

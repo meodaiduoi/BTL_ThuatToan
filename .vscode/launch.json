@@ -4,6 +4,13 @@
             "type": "java",
             "name": "Launch App",
             "request": "launch",
+            "mainClass": "main.App",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
+            "name": "Launch App",
+            "request": "launch",
             "mainClass": "sort.App",
             "projectName": "app"
         }

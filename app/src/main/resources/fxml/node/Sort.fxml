@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<HBox prefHeight="236.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ControllerSort">
+   <children>
+      <VBox maxWidth="300.0" prefWidth="200.0">
+         <children>
+            <HBox alignment="CENTER">
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Array Configuration">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" VBox.vgrow="NEVER">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Array size:">
+                     <HBox.margin>
+                        <Insets right="15.0" />
+                     </HBox.margin>
+                  </Text>
+                  <TextField alignment="CENTER" maxWidth="95.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="25.0" prefWidth="124.0" promptText="Array size" text="100" />
+               </children>
+            </HBox>
+            <VBox prefHeight="59.0" prefWidth="126.0">
+               <children>
+                  <CheckBox mnemonicParsing="false" text="Intergel array">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </CheckBox>
+                  <CheckBox mnemonicParsing="false" text="Sorted">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </CheckBox>
+                  <CheckBox disable="true" mnemonicParsing="false" text="Nearly sorted">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </CheckBox>
+                  <CheckBox disable="true" mnemonicParsing="false" text="Reversed">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </CheckBox>
+               </children>
+               <VBox.margin>
+                  <Insets left="15.0" top="20.0" />
+               </VBox.margin>
+            </VBox>
+            <TextArea prefHeight="163.0" prefWidth="171.0">
+               <VBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </VBox.margin>
+            </TextArea>
+         </children>
+      </VBox>
+      <LineChart prefWidth="291.0" title="      Sort algorithm comparison graph" HBox.hgrow="ALWAYS">
+         <xAxis>
+            <CategoryAxis label="Total loops" side="BOTTOM" />
+         </xAxis>
+         <yAxis>
+            <NumberAxis label="Runtime (ms)" side="LEFT" />
+         </yAxis>
+         <HBox.margin>
+            <Insets bottom="15.0" left="30.0" right="30.0" top="30.0" />
+         </HBox.margin>
+      </LineChart>
+      <VBox maxWidth="300.0" prefHeight="419.0" prefWidth="200.0" HBox.hgrow="NEVER">
+         <children>
+            <HBox alignment="CENTER">
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Linechart Setting">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" VBox.vgrow="NEVER">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Insterval:">
+                     <HBox.margin>
+                        <Insets right="15.0" />
+                     </HBox.margin>
+                  </Text>
+                  <TextField alignment="CENTER" maxWidth="95.0" prefWidth="150.0" promptText="Interval" text="1" />
+               </children>
+            </HBox>
+            <AnchorPane prefHeight="361.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <VBox layoutX="14.0" layoutY="14.0" prefHeight="85.0" prefWidth="152.0">
+                     <children>
+                        <CheckBox mnemonicParsing="false" text="Bubble sort">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" text="Interchange sort">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" text="Insertion sort">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" text="Selection sort">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" text="Merge sort">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </CheckBox>
+                        <Button mnemonicParsing="false" text="Initialize graph">
+                           <VBox.margin>
+                              <Insets top="30.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </children>
+</HBox>

@@ -1,4 +1,4 @@
-package arraygen;
+package dataset;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -7,21 +7,22 @@ import java.util.Collections;
 public class RandomArray {
     private int size = 10;
     private ArrayList<Number> array = new ArrayList<>();
+    
     public RandomArray () {
         arrayGenerator(true, false, false, false);
     }
 
-    RandomArray (int size) {
+    public RandomArray (int size) {
         this.size = size;
         arrayGenerator(true, false, false, false);
     }
 
-    RandomArray (int size, boolean isInt) {
+    public RandomArray (int size, boolean isInt) {
         this.size = size;
         arrayGenerator(isInt, false, false, false);
     }
 
-    RandomArray(int size, boolean isInt, boolean isSorted, boolean isReversed, boolean isHaftSorted){
+    public RandomArray(int size, boolean isInt, boolean isSorted, boolean isReversed, boolean isHaftSorted){
         this.size = size;
         arrayGenerator(isInt, isSorted, isReversed, isHaftSorted);
     }
