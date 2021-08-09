@@ -21,7 +21,7 @@ public class App extends Application {
         // loader.setLocation(getClass().getResource("/fxml/hello.fxml"));
         // Parent root = loader.load();
 
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Appv2.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Main.fxml"));
 
         //Window configuration
         stage.setTitle("Algorithm speed visuallizer");
