@@ -92,20 +92,6 @@ public class ControllerSort implements Initializable{
     }
 
     @FXML
-    private void handleButton_about (ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/sort/fxml/About.fxml"));
-        Stage stage = new Stage();
-
-        stage.setResizable(false);
-        stage.getIcons().add(new Image("/sort/icon/icon.png"));
-        stage.setTitle("About");
-
-        stage.setScene(new Scene(root));
-        stage.show();
-    }
-
-
-    @FXML
     private void handleButton_initgraph (ActionEvent event) {
 
         // remove old data
@@ -131,7 +117,6 @@ public class ControllerSort implements Initializable{
             if (bubble_sortCBox.isSelected()) {
 
                 sort.bubbleSort();
-                sort.bubblesort_getTotalRuntime();
 
                 int total_loop = 0;
                 bubble_sortSeries.getData().add(new XYChart.Data<String, Number>("0", 0));
@@ -140,7 +125,6 @@ public class ControllerSort implements Initializable{
                     bubble_sortSeries.getData().add(new XYChart.Data<String, Number>(String.valueOf(total_loop), i));
                 }
 
-                sortChart.setCreateSymbols(false);
                 sortChart.getData().add(bubble_sortSeries);
 
                 debugInfo("- Bubble sort:");
@@ -151,7 +135,6 @@ public class ControllerSort implements Initializable{
             if (interchange_sortCBox.isSelected()) {
 
                 sort.interChangeSort();
-                sort.interchangesort_getTotalRuntime();
 
                 int total_loop = 0;
                 interchange_sortSeries.getData().add(new XYChart.Data<String, Number>("0", 0));
@@ -160,7 +143,6 @@ public class ControllerSort implements Initializable{
                     interchange_sortSeries.getData().add(new XYChart.Data<String, Number>(String.valueOf(total_loop), i));
                 }
 
-                sortChart.setCreateSymbols(false);
                 sortChart.getData().add(interchange_sortSeries);
 
                 debugInfo("- Interchange sort:");
@@ -171,7 +153,6 @@ public class ControllerSort implements Initializable{
             if (selection_sortCBox.isSelected()) {
 
                 sort.selectionSort();
-                sort.selectionsort_getTotalRuntime();
 
                 int total_loop = 0;
                 selection_sortSeries.getData().add(new XYChart.Data<String, Number>("0", 0));
@@ -191,7 +172,6 @@ public class ControllerSort implements Initializable{
             if (insertion_sortCBox.isSelected()) {
 
                 sort.insertionSort();
-                sort.insertionsort_getTotalRuntime();
 
                 int total_loop = 0;
                 insertion_sortSeries.getData().add(new XYChart.Data<String, Number>("0", 0));
@@ -200,7 +180,6 @@ public class ControllerSort implements Initializable{
                     insertion_sortSeries.getData().add(new XYChart.Data<String, Number>(String.valueOf(total_loop), i));
                 }
 
-                sortChart.setCreateSymbols(false);
                 sortChart.getData().add(insertion_sortSeries);
 
                 debugInfo("- Insertion sort:");
@@ -240,6 +219,7 @@ public class ControllerSort implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        // ! ERROR
         is_sortedCBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
             if (is_sortedCBox.isSelected()) {
                 is_haft_sortedCBox.setDisable(false);
@@ -256,7 +236,7 @@ public class ControllerSort implements Initializable{
         interchange_sortSeries.setName("Interchange sort");
         selection_sortSeries.setName("Selection sort");
         insertion_sortSeries.setName("Insertion sort");
-        merge_sortSeries.setName("Insertion sort");
+        merge_sortSeries.setName("Merge sort");
 
         // starting point
         bubble_sortSeries.getData().add(new XYChart.Data<String, Number>("0", 0));
@@ -266,7 +246,7 @@ public class ControllerSort implements Initializable{
         merge_sortSeries.getData().add(new XYChart.Data<String, Number>("0", 0));
 
         // add figure
-        sortChart.getData().removeAll(bubble_sortSeries, interchange_sortSeries, selection_sortSeries, insertion_sortSeries, merge_sortSeries);
+        sortChart.getData().addAll(bubble_sortSeries, interchange_sortSeries, selection_sortSeries, insertion_sortSeries, merge_sortSeries);
 
     }
 

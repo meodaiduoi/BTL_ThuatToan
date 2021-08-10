@@ -1,4 +1,4 @@
-package controller;
+// package controller;
 // package main;
 
 // import javafx.fxml.FXML;
@@ -26,9 +26,7 @@ package controller;
 // public class ControllerSearch implements Initializable{
 //     public ControllerSearch() {}
 
-//     // Binding
-
-//     // Tab 1
+//     // binding
 //     @FXML
 //     private TextField array_sizeTField;
 
@@ -119,44 +117,44 @@ package controller;
 //     @Override
 //     public void initialize(URL location, ResourceBundle resources) {
 
-//         // // This section of code is retared
-//         // debug.selectedProperty().addListener((observable, oldValue, newValue) -> {
-//         //     if (debug.isSelected()) {
-//         //         debug_output.setVisible(true);
-//         //     }
-//         //     if (!debug.isSelected()) {
-//         //         debug_output.setVisible(false);
-//         //     }
-//         // });
+//         // This section of code is retared
+//         debug.selectedProperty().addListener((observable, oldValue, newValue) -> {
+//             if (debug.isSelected()) {
+//                 debug_output.setVisible(true);
+//             }
+//             if (!debug.isSelected()) {
+//                 debug_output.setVisible(false);
+//             }
+//         });
 
-//         // is_sorted.selectedProperty().addListener((observable, oldValue, newValue) -> {
-//         //     if (is_sorted.isSelected()) {
-//         //         is_haft_sorted.setDisable(false);
-//         //         is_reversed.setDisable(false);
-//         //     }
-//         //     if (!is_sorted.isSelected()) {
-//         //         is_haft_sorted.setDisable(true);
-//         //         is_reversed.setDisable(true);
-//         //     }
-//         // });
+//         is_sorted.selectedProperty().addListener((observable, oldValue, newValue) -> {
+//             if (is_sorted.isSelected()) {
+//                 is_haft_sorted.setDisable(false);
+//                 is_reversed.setDisable(false);
+//             }
+//             if (!is_sorted.isSelected()) {
+//                 is_haft_sorted.setDisable(true);
+//                 is_reversed.setDisable(true);
+//             }
+//         });
 
-//         // // init linechart
-//         // series_bubblesort.setName("Bubblesort");
-//         // series_interchangesort.setName("Interchange sort");
-//         // series_selectionsort.setName("Selection sort");
-//         // series_insertionsort.setName("Insertion sort");
+//         // init linechart
+//         series_bubblesort.setName("Bubblesort");
+//         series_interchangesort.setName("Interchange sort");
+//         series_selectionsort.setName("Selection sort");
+//         series_insertionsort.setName("Insertion sort");
 
-//         // // starting point
-//         // series_bubblesort.getData().add(new XYChart.Data<String, Number>("0", 0));
-//         // series_interchangesort.getData().add(new XYChart.Data<String, Number>("0", 0));
-//         // series_selectionsort.getData().add(new XYChart.Data<String, Number>("0", 0));
-//         // series_insertionsort.getData().add(new XYChart.Data<String, Number>("0", 0));
+//         // starting point
+//         series_bubblesort.getData().add(new XYChart.Data<String, Number>("0", 0));
+//         series_interchangesort.getData().add(new XYChart.Data<String, Number>("0", 0));
+//         series_selectionsort.getData().add(new XYChart.Data<String, Number>("0", 0));
+//         series_insertionsort.getData().add(new XYChart.Data<String, Number>("0", 0));
 
-//         // // add figure
-//         // linechart.getData().add(series_bubblesort);
-//         // linechart.getData().add(series_interchangesort);
-//         // linechart.getData().add(series_selectionsort);
-//         // linechart.getData().add(series_insertionsort);
+//         // add figure
+//         linechart.getData().add(series_bubblesort);
+//         linechart.getData().add(series_interchangesort);
+//         linechart.getData().add(series_selectionsort);
+//         linechart.getData().add(series_insertionsort);
 //     }
 
 // }
