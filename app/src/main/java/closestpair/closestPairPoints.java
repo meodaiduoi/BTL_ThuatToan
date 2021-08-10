@@ -23,7 +23,7 @@ public class closestPairPoints {
     public double nanoToMili(long startTimes, long endTimes) {
         return (double) (endTimes - startTimes) / 1000000;
     }
-    
+
     public closestPairPoints(ArrayList<Point> Point) {
         this.Point = Point;
     }
@@ -39,7 +39,7 @@ public class closestPairPoints {
             System.out.println("P is a set of at least two points on the plane, given by their x-and y-coordinates");
             return -1;
         }
- 
+
         // Point P = new Point();
         // Copy cac diem trong mang points --> P_x va P_y
         Point[] P_x = new Point[num_point];
@@ -57,10 +57,11 @@ public class closestPairPoints {
                 return Double.compare(p1.x, p2.x);
             }
         });
-        
+
         // Sort Array x-coordinate
         Arrays.sort(P_x, new Comparator<Point>() {
             @Override
+
             public int compare(Point p1, Point p2) {
                 return Double.compare(p1.y, p2.y);
             }
@@ -73,7 +74,7 @@ public class closestPairPoints {
         return min_dict;
     }
 
-    
+
 
     private double RCP(Point[] P_x, Point[] P_y, Point[] B, int lo, int hi) {
         Point p1 = null, p2 = null;
@@ -93,13 +94,13 @@ public class closestPairPoints {
         double R_x = RCP(P_x, P_y, B, mid + 1, hi);
         double phi = Math.min(L_x, R_x);
 
-        // B[0..m-1] = Các điểm trong khoảng có tọa độ x từ m-phi tới m + phi và được xắp theo Y
+
         int m = 0;
         for (int i = lo; i <= hi; i++) {
             if (Math.abs(P_y[i].x - X_m.x) < phi)
                 B[m++] = P_y[i];
         }
-        // so sánh từng điểm với các điểm lân cận của nó với tọa độ y gần hơn phi
+
         for (int i = 0; i < m; i++) {
             // Vong for nay se lạp 7 lan
             for (int j = i + 1; (j < m) && (B[j].y - B[i].y < phi); j++) {
@@ -116,7 +117,6 @@ public class closestPairPoints {
         }
         return phi;
     }
-
 
     // Thuat toan tim 2 canh gan nhat bang cach so sanh tuan tu
     public Double linearClosestPair(){
@@ -151,7 +151,7 @@ public class closestPairPoints {
     public double closestPair_getTotalRuntime() {
         return closestPair_TotalRuntime;
     }
-    
+
     public double linearClosestPair_getTotalRuntime() {
         return linearClosestPair_TotalRuntime;
     }
@@ -174,7 +174,7 @@ public class closestPairPoints {
         for (int j = 0; j < list.size(); j++) {
             System.out.println(list.get(j).x + "  " + list.get(j).y);
         }
-        
+
         closestPairPoints m = new closestPairPoints(list);
 
         System.out.println(" Min1 " + m.linearClosestPair());
@@ -184,7 +184,7 @@ public class closestPairPoints {
             System.out.println(list.get(j).x + "  " + list.get(j).y);
         }
         System.out.println(" Min2 " + m.closestPair());
-        System.out.println(" time2 " + m.closestPair_getTotalRuntime()); 
-       
+        System.out.println(" time2 " + m.closestPair_getTotalRuntime());
+
     }
 }
