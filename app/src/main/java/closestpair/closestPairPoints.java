@@ -1,5 +1,6 @@
 package closestpair;
 
+
 import java.util.*;
 
 public class closestPairPoints {
@@ -14,6 +15,9 @@ public class closestPairPoints {
         }
 
     }
+    
+    private Point p1 = null, p2 = null;
+    private double min;
 
     private double closestPair_TotalRuntime, linearClosestPair_TotalRuntime;
 
@@ -26,6 +30,7 @@ public class closestPairPoints {
 
     public closestPairPoints(ArrayList<Point> Point) {
         this.Point = Point;
+        this.min = getDistance(this.Point.get(0), this.Point.get(1));
     }
 
     public double closestPair() {
@@ -77,8 +82,8 @@ public class closestPairPoints {
 
 
     private double RCP(Point[] P_x, Point[] P_y, Point[] B, int lo, int hi) {
-        Point p1 = null, p2 = null;
-        double min = Double.MAX_VALUE;
+        
+        // double min =
         // Dieu kien dung
         if (hi <= lo) return Double.POSITIVE_INFINITY;
 
@@ -95,15 +100,15 @@ public class closestPairPoints {
         double phi = Math.min(L_x, R_x);
 
 
-        int m = 0;
+        int count = 0;
         for (int i = lo; i <= hi; i++) {
             if (Math.abs(P_y[i].x - X_m.x) < phi)
-                B[m++] = P_y[i];
+                B[count++] = P_y[i];
         }
 
-        for (int i = 0; i < m; i++) {
-            // Vong for nay se lạp 7 lan
-            for (int j = i + 1; (j < m) && (B[j].y - B[i].y < phi); j++) {
+        for (int i = 0; i < count; i++) {
+            // Vong for nay se lạp count < 8 lan
+            for (int j = i + 1; (j < count) && (B[j].y - B[i].y < phi); j++) {
                 double distance = getDistance(B[i], B[j]);
                 if (distance < phi) {
                     phi = distance;
@@ -122,7 +127,6 @@ public class closestPairPoints {
     public Double linearClosestPair(){
         long startTime = System.nanoTime();
         ArrayList<Point> Points =  new ArrayList<>(this.Point);
-        double min = Double.MAX_VALUE;
         int n = Points.size();
         for(int i=0;i<n;i++){
             for(int j=i+1;j<n;j++){
@@ -159,32 +163,19 @@ public class closestPairPoints {
     public static void main(String[] args) {
         ArrayList<Point> list = new ArrayList<>();
         Random rd = new Random();
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 10000; i++) {
             Point p1 = new Point(100 * rd.nextDouble() ,100 * rd.nextDouble());
             list.add(p1);
         }
-        // Point p1 = new Point(2,3);
-        // Point p2 = new Point(12,30);
-        // Point p3 = new Point(40,50);
-        // Point p4 = new Point(5,1);
-        // Point p5 = new Point(12,10);
-        // Point p6 = new Point(3,4);
-        // list.add(p1);  list.add(p2); list.add(p3); list.add(p4); list.add(p5); list.add(p6);
-
-        for (int j = 0; j < list.size(); j++) {
-            System.out.println(list.get(j).x + "  " + list.get(j).y);
-        }
 
         closestPairPoints m = new closestPairPoints(list);
-
         System.out.println(" Min1 " + m.linearClosestPair());
         System.out.println(" time1 " + m.linearClosestPair_getTotalRuntime());
 
-        for (int j = 0; j < list.size(); j++) {
-            System.out.println(list.get(j).x + "  " + list.get(j).y);
-        }
+        
         System.out.println(" Min2 " + m.closestPair());
         System.out.println(" time2 " + m.closestPair_getTotalRuntime());
 
     }
 }
+
