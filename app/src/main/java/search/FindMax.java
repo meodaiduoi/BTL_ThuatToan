@@ -55,11 +55,12 @@ public class FindMax implements FindMaxImpl {
 
 
 
-
+    @Override
     public double binaryMax_getTotalRuntime() {
         return binaryMax_TotalRuntime;
     }
 
+    @Override
     public double linearMax_getTotalRuntime() {
         return linearMax_TotalRuntime;
     }
@@ -76,17 +77,5 @@ public class FindMax implements FindMaxImpl {
         System.out.println(s.linearMax(0, a.size() - 1));
         System.out.println(s.linearMax_getTotalRuntime());
 
-    }
-
-    @Override
-    public double binaryMax_TotalRuntime() {
-        // TODO Auto-generated method stub
-        return 0;
-    }
-
-    @Override
-    public double linearMax_TotalRuntime() {
-        // TODO Auto-generated method stub
-        return 0;
     }
 }

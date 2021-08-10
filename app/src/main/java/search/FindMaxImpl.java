@@ -1,5 +1,5 @@
 package search;
 public interface FindMaxImpl {
-    double binaryMax_TotalRuntime ();
-    double linearMax_TotalRuntime ();
+    double binaryMax_getTotalRuntime ();
+    double linearMax_getTotalRuntime ();
 }

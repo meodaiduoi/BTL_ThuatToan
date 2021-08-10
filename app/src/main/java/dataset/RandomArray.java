@@ -1,4 +1,4 @@
-package arraygen;
+package dataset;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -7,34 +7,35 @@ import java.util.Collections;
 public class RandomArray {
     private int size = 10;
     private ArrayList<Number> array = new ArrayList<>();
+
     public RandomArray () {
         arrayGenerator(true, false, false, false);
     }
 
-    RandomArray (int size) {
+    public RandomArray (int size) {
         this.size = size;
         arrayGenerator(true, false, false, false);
     }
 
-    RandomArray (int size, boolean isInt) {
+    public RandomArray (int size, boolean isInt) {
         this.size = size;
         arrayGenerator(isInt, false, false, false);
     }
 
-    RandomArray(int size, boolean isInt, boolean isSorted, boolean isReversed, boolean isHaftSorted){
+    public RandomArray(int size, boolean isInt, boolean isSorted, boolean isReversed, boolean isNearlySorted){
         this.size = size;
-        arrayGenerator(isInt, isSorted, isReversed, isHaftSorted);
+        arrayGenerator(isInt, isSorted, isReversed, isNearlySorted);
     }
 
-    private void arrayGenerator (boolean isInt, boolean isSorted, boolean isReversed, boolean isHaftSorted) {
+    private void arrayGenerator (boolean isInt, boolean isSorted, boolean isReversed, boolean isNearlySorted) {
 
 
 
         Random rd = new Random();
         if (isInt) {
             for (int i = 0; i < size; i++) {
-                array.add(rd.nextInt((100 + 100) + 1) - 100);
-                //array.add(rd.nextInt());
+                //array.add(rd.nextInt((100 + 100) + 1) - 100);
+                array.add(rd.nextInt());
             }
         }
 
@@ -65,7 +66,7 @@ public class RandomArray {
                 Collections.reverse(this.array);
             }
 
-            if (isHaftSorted) {
+            if (isNearlySorted) {
                 for (int i = 0; i < this.array.size(); i++) {
                     this.array.set(i, rd.nextInt());
                 }
