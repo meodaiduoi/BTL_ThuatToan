@@ -1,4 +1,4 @@
-package sort;
+package visualizer.sort;
 
 
 import java.util.ArrayList;

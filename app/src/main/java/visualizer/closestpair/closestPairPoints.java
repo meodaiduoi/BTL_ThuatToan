@@ -1,4 +1,4 @@
-package closestpair;
+package visualizer.closestpair;
 
 
 import java.util.*;

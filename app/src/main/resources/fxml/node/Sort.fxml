@@ -45,11 +45,6 @@
             </HBox>
             <VBox prefHeight="59.0" prefWidth="126.0">
                <children>
-                  <CheckBox fx:id="is_interger_arrayCBox" mnemonicParsing="false" text="Intergel array">
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                  </CheckBox>
                   <CheckBox fx:id="is_sortedCBox" mnemonicParsing="false" text="Sorted">
                      <VBox.margin>
                         <Insets top="10.0" />

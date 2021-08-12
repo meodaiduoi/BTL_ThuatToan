@@ -1,4 +1,4 @@
-package search;
+package visualizer.search;
 import java.util.ArrayList;
 
 public class FindMax implements FindMaxImpl {

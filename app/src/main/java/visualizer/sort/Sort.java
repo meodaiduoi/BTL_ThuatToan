@@ -1,17 +1,17 @@
-package sort;
+package visualizer.sort;
 
 import java.util.ArrayList;
 
 public class Sort implements RuntimeClock {
 
-    private ArrayList<Number> array = new ArrayList<>();
+    private ArrayList<Integer> array = new ArrayList<>();
     private int loop_interval = 1;
 
-    public Sort(ArrayList<Number> array) {
+    public Sort(ArrayList<Integer> array) {
         this.array = array;
     }
 
-    public Sort(ArrayList<Number> array, int loop_interval) {
+    public Sort(ArrayList<Integer> array, int loop_interval) {
         this.array = array;
         this.loop_interval = loop_interval;
     }
@@ -19,10 +19,10 @@ public class Sort implements RuntimeClock {
 
     private double bubblesort_TotalRuntime, interchangesort_TotalRuntime, selectionsort_TotalRuntime, insertionsort_TotalRuntime;
 
-    private ArrayList<Number> insertionsort_getLoopTime = new ArrayList<>();
-    private ArrayList<Number> selectionsort_getLoopTime = new ArrayList<>();
-    private ArrayList<Number> interchangesort_getLoopTime = new ArrayList<>();
-    private ArrayList<Number> bubblesort_getLoopTime = new ArrayList<>();
+    private ArrayList<Integer> insertionsort_getLoopTime = new ArrayList<>();
+    private ArrayList<Integer> selectionsort_getLoopTime = new ArrayList<>();
+    private ArrayList<Integer> interchangesort_getLoopTime = new ArrayList<>();
+    private ArrayList<Integer> bubblesort_getLoopTime = new ArrayList<>();
 
     // return milisecond
     public double nanoToMili(long startTimes, long endTimes) {
@@ -32,8 +32,8 @@ public class Sort implements RuntimeClock {
     /**
      * Insertion Sort
      */
-    public ArrayList<Number> insertionSort() {
-        ArrayList<Number> list = new ArrayList<>(this.array);
+    public ArrayList<Integer> insertionSort() {
+        ArrayList<Integer> list = new ArrayList<>(this.array);
         int size = list.size();
 
         if (size == 0) {
@@ -67,8 +67,8 @@ public class Sort implements RuntimeClock {
     /**
      * Insertion Sort
      */
-    public ArrayList<Number> bubbleSort() {
-        ArrayList<Number> list = new ArrayList<>(array);
+    public ArrayList<Integer> bubbleSort() {
+        ArrayList<Integer> list = new ArrayList<>(array);
         int size = list.size();
 
         if (size == 0) {
@@ -101,8 +101,8 @@ public class Sort implements RuntimeClock {
      * Insertion Sort
      * @param list
      */
-    public ArrayList<Number> selectionSort() {
-        ArrayList<Number> list = new ArrayList<>(array);
+    public ArrayList<Integer> selectionSort() {
+        ArrayList<Integer> list = new ArrayList<>(array);
 
         int size = list.size();
 
@@ -138,8 +138,8 @@ public class Sort implements RuntimeClock {
      * Insertion Sort
      * @param list
      */
-    public ArrayList<Number> interChangeSort() {
-        ArrayList<Number> list = new ArrayList<>(array);
+    public ArrayList<Integer> interChangeSort() {
+        ArrayList<Integer> list = new ArrayList<>(array);
 
         int size = list.size();
 
@@ -189,22 +189,22 @@ public class Sort implements RuntimeClock {
     }
 
     @Override
-    public ArrayList<Number> bubblesort_getLoopTime() {
+    public ArrayList<Integer> bubblesort_getLoopTime() {
         return bubblesort_getLoopTime;
     }
 
     @Override
-    public ArrayList<Number> insertionsort_getLoopTime() {
+    public ArrayList<Integer> insertionsort_getLoopTime() {
         return insertionsort_getLoopTime;
     }
 
     @Override
-    public ArrayList<Number> interchangesort_getLoopTime() {
+    public ArrayList<Integer> interchangesort_getLoopTime() {
         return interchangesort_getLoopTime;
     }
 
     @Override
-    public ArrayList<Number> selectionsort_getLoopTime() {
+    public ArrayList<Integer> selectionsort_getLoopTime() {
         return selectionsort_getLoopTime;
     }
 }

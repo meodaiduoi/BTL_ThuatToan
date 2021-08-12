@@ -30,14 +30,19 @@
                   </Text>
                </children>
             </HBox>
-            <AnchorPane prefHeight="95.0" prefWidth="200.0">
+            <HBox alignment="CENTER">
                <children>
-                  <Text layoutX="20.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start size:" />
-                  <TextField alignment="CENTER" layoutX="90.0" layoutY="14.0" maxWidth="90.0" prefWidth="90.0" promptText="Array size" text="2" />
-                  <Text layoutX="22.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="End size:" />
-                  <TextField alignment="CENTER" layoutX="90.0" layoutY="46.0" maxWidth="90.0" prefWidth="90.0" promptText="Array size" text="100" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Array size:">
+                     <HBox.margin>
+                        <Insets right="15.0" />
+                     </HBox.margin>
+                  </Text>
+                  <TextField fx:id="array_sizeTField" alignment="CENTER" maxWidth="95.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="25.0" prefWidth="124.0" promptText="Array size" text="100" />
                </children>
-            </AnchorPane>
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </HBox>
             <TextArea prefHeight="264.0" prefWidth="175.0" VBox.vgrow="ALWAYS">
                <VBox.margin>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

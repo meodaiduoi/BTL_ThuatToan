@@ -5,14 +5,8 @@
             "name": "Launch App",
             "request": "launch",
             "mainClass": "main.App",
-            "projectName": "app"
-        },
-        {
-            "type": "java",
-            "name": "Launch App",
-            "request": "launch",
-            "mainClass": "sort.App",
-            "projectName": "app"
+            "projectName": "app",
+            "jdkPath": "D:/Program File/java/Zulu/zulu-16/bin"
         }
     ]
 }

@@ -16,7 +16,7 @@ plugins {
 jar {
     manifest {
         attributes(
-                'Main-Class': 'sort.App'
+                'Main-Class': 'main.App'
         )
     }
 }
@@ -31,7 +31,7 @@ dependencies {
     // testImplementation 'org.junit.jupiter:junit-jupiter:5.7.1'
 
     // // This dependency is used by the application.
-    // implementation 'com.google.guava:guava:30.1-jre'
+    implementation 'com.google.guava:guava:30.1-jre'
 }
 
 application {
@@ -39,23 +39,23 @@ application {
     mainClass = 'main.App'
 }
 
-// javafx {
-//     version = '16'
-//     // sdk = 'D:/Program File/java/Zulu/zulu16.30.15-ca-fx-jdk16.0.1-win_x64'
-//     modules = [ 'javafx.controls', 'javafx.fxml' ]
-//     configuration = 'compileOnly'
-// }
+javafx {
+    version = '16'
+    // sdk = 'D:/Program File/java/Zulu/zulu16.30.15-ca-fx-jdk16.0.1-win_x64'
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
+    configuration = 'compileOnly'
+}
 
-// compileJava   {
-//   sourceCompatibility = '16'
-//   targetCompatibility = '16'
-// }
+compileJava   {
+  sourceCompatibility = '16'
+  targetCompatibility = '16'
+}
 
 // compileJava.options.fork = true
 // compileJava.options.forkOptions.executable = 'D:/Program File/java/Zulu/zulu16.30.15-ca-fx-jdk16.0.1-win_x64/bin/'
 
-tasks.named('test') {
-    // Use JUnit Platform for unit tests.
-    useJUnitPlatform()
-}
+// tasks.named('test') {
+//     // Use JUnit Platform for unit tests.
+//     useJUnitPlatform()
+// }
 

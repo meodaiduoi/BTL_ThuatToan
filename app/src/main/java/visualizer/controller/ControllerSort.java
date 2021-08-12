@@ -1,4 +1,4 @@
-package controller;
+package visualizer.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -11,26 +11,15 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
 
-import javafx.fxml.FXMLLoader;
-import javafx.stage.Stage;
-import sort.Sort;
-import javafx.scene.Scene;
-import javafx.scene.Parent;
-import javafx.scene.image.Image;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import dataset.RandomArray;
+import visualizer.dataset.RandomArray;
+import visualizer.sort.Sort;
 
 public class ControllerSort implements Initializable{
     public ControllerSort() {}
-
-    // Binding
-
-    // Tab 1
-
 
     // array cfg
     @FXML
@@ -46,7 +35,7 @@ public class ControllerSort implements Initializable{
     private CheckBox is_sortedCBox;
 
     @FXML
-    private CheckBox is_haft_sortedCBox;
+    private CheckBox is_nearly_sortedCBox;
 
     // sort cfg
     @FXML
@@ -106,7 +95,7 @@ public class ControllerSort implements Initializable{
         try {
             int loop_interval = Integer.parseInt(intervalTField.getText());
 
-            RandomArray array = new RandomArray(Integer.parseInt(array_sizeTField.getText()), is_interger_arrayCBox.isSelected(), is_sortedCBox.isSelected(), is_reversedCBox.isSelected(), is_haft_sortedCBox.isSelected());
+            RandomArray array = new RandomArray(is_sortedCBox.isSelected(), is_reversedCBox.isSelected(), is_nearly_sortedCBox.isSelected());
             Sort sort = new Sort(array.getArray(), loop_interval);
 
             debugInfo("-- Initialize new chart: --");
@@ -187,24 +176,24 @@ public class ControllerSort implements Initializable{
             }
 
             // merge sort
-            // if (merge_sortCBox.isSelected()) {
+            if (merge_sortCBox.isSelected()) {
 
-            //     sort.mergeSort();
-            //     sort.insertionsort_getTotalRuntime();
+                sort.mergeSort();
+                sort.insertionsort_getTotalRuntime();
 
-            //     int total_loop = 0;
-            //     insertion_sortSeries.getData().add(new XYChart.Data<String, Number>("0", 0));
-            //     for (Number i : sort.insertionsort_getLoopTime()) {
-            //         total_loop += loop_interval;
-            //         insertion_sortSeries.getData().add(new XYChart.Data<String, Number>(String.valueOf(total_loop), i));
-            //     }
+                int total_loop = 0;
+                insertion_sortSeries.getData().add(new XYChart.Data<String, Number>("0", 0));
+                for (Number i : sort.insertionsort_getLoopTime()) {
+                    total_loop += loop_interval;
+                    insertion_sortSeries.getData().add(new XYChart.Data<String, Number>(String.valueOf(total_loop), i));
+                }
 
-            //     sortChart.setCreateSymbols(false);
-            //     sortChart.getData().add(insertion_sortSeries);
+                sortChart.setCreateSymbols(false);
+                sortChart.getData().add(insertion_sortSeries);
 
-            //     debugInfo("- Insertion sort:");
-            //     debugInfo("Finished time: " + sort.insertionsort_getTotalRuntime() + "ms");
-            // }
+                debugInfo("- Insertion sort:");
+                debugInfo("Finished time: " + sort.insertionsort_getTotalRuntime() + "ms");
+            }
         }
 
         catch (NumberFormatException E) {
@@ -222,11 +211,11 @@ public class ControllerSort implements Initializable{
         // ! ERROR
         is_sortedCBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
             if (is_sortedCBox.isSelected()) {
-                is_haft_sortedCBox.setDisable(false);
+                is_nearly_sortedCBox.setDisable(false);
                 is_reversedCBox.setDisable(false);
             }
             if (!is_sortedCBox.isSelected()) {
-                is_haft_sortedCBox.setDisable(true);
+                is_nearly_sortedCBox.setDisable(true);
                 is_reversedCBox.setDisable(true);
             }
         });
