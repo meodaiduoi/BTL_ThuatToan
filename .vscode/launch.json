@@ -2,6 +2,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch closestPairPoints",
+            "request": "launch",
+            "mainClass": "visualizer.closestpair.closestPairPoints",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
+            "name": "Launch RandomArray",
+            "request": "launch",
+            "mainClass": "visualizer.dataset.RandomArray",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
+            "name": "Launch test",
+            "request": "launch",
+            "mainClass": "visualizer.dataset.test",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
+            "name": "Launch MultiRandomArray",
+            "request": "launch",
+            "mainClass": "visualizer.dataset.MultiRandomArray",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
             "name": "Launch App",
             "request": "launch",
             "mainClass": "main.App",

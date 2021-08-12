@@ -82,7 +82,7 @@ public class closestPairPoints {
 
 
     private double RCP(Point[] P_x, Point[] P_y, Point[] B, int lo, int hi) {
-        
+
         // double min =
         // Dieu kien dung
         if (hi <= lo) return Double.POSITIVE_INFINITY;
@@ -172,7 +172,6 @@ public class closestPairPoints {
         System.out.println(" Min1 " + m.linearClosestPair());
         System.out.println(" time1 " + m.linearClosestPair_getTotalRuntime());
 
-        
         System.out.println(" Min2 " + m.closestPair());
         System.out.println(" time2 " + m.closestPair_getTotalRuntime());
 

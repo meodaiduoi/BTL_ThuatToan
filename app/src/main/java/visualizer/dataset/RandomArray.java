@@ -17,24 +17,34 @@ public class RandomArray {
         arrayGenerator(false, false, false);
     }
 
-    public RandomArray(int size, boolean isSorted){
+    public RandomArray(int size, boolean isSorted) {
         this.size = size;
         arrayGenerator(isSorted, false, false);
+    }
+
+    public RandomArray(int size, boolean isSorted, boolean isReversed, boolean isNearlySorted) {
+        this.size = size;
+        arrayGenerator(isSorted, isReversed, isNearlySorted);
     }
 
     private void arrayGenerator (boolean isSorted, boolean isReversed, boolean isNearlySorted) {
         Random rd = new Random();
 
-        for (int i = 0; i < size; i++) { array.add(rd.nextInt()); }
+        for (int i = 0; i < this.size; i++) {
+            array.add(rd.nextInt());
+            //array.add(rd.nextInt(10)+1);
+        }
 
         if (isSorted) {
 
+            Collections.sort(this.array);
+
+            if (isReversed) {
             Collections.reverse(this.array);
+            }
 
             if (isNearlySorted) {
-                for (int i = 0; i < this.array.size(); i++) {
-                    this.array.set(i, rd.nextInt());
-                }
+                this.array.set(new Random().nextInt((array.size() - 0) + 0), rd.nextInt());
             }
         }
     }
