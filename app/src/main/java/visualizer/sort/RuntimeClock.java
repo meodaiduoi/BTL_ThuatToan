@@ -1,17 +1,10 @@
 package visualizer.sort;
 
-
-import java.util.ArrayList;
-
-interface RuntimeClock {
+public interface RuntimeClock {
+    double mergesort_getTotalRuntime ();
     double bubblesort_getTotalRuntime ();
     double interchangesort_getTotalRuntime ();
     double selectionsort_getTotalRuntime ();
     double insertionsort_getTotalRuntime ();
-
-    ArrayList<Number> bubblesort_getLoopTime ();
-    ArrayList<Number> interchangesort_getLoopTime ();
-    ArrayList<Number> selectionsort_getLoopTime ();
-    ArrayList<Number> insertionsort_getLoopTime ();
 
 }

@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox prefHeight="236.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerSort">
+<HBox prefHeight="236.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="visualizer.controller.ControllerSort">
    <children>
       <VBox maxWidth="300.0" prefWidth="200.0">
          <children>
@@ -30,19 +30,14 @@
                   </Text>
                </children>
             </HBox>
-            <HBox alignment="CENTER" VBox.vgrow="NEVER">
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
+            <AnchorPane prefHeight="95.0" prefWidth="200.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Array size:">
-                     <HBox.margin>
-                        <Insets right="15.0" />
-                     </HBox.margin>
-                  </Text>
-                  <TextField fx:id="array_sizeTField" alignment="CENTER" maxWidth="95.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="25.0" prefWidth="124.0" promptText="Array size" text="100" />
+                  <Text layoutX="20.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start size:" />
+                  <TextField fx:id="array_start_sizeTField" alignment="CENTER" layoutX="90.0" layoutY="14.0" maxWidth="90.0" prefWidth="90.0" promptText="Array size" text="2" />
+                  <Text layoutX="22.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="End size:" />
+                  <TextField fx:id="array_end_sizeTField" alignment="CENTER" layoutX="90.0" layoutY="46.0" maxWidth="90.0" prefWidth="90.0" promptText="Array size" text="100" />
                </children>
-            </HBox>
+            </AnchorPane>
             <VBox prefHeight="59.0" prefWidth="126.0">
                <children>
                   <CheckBox fx:id="is_sortedCBox" mnemonicParsing="false" text="Sorted">
@@ -50,7 +45,7 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </CheckBox>
-                  <CheckBox fx:id="is_haft_sortedCBox" disable="true" mnemonicParsing="false" text="Nearly sorted">
+                  <CheckBox fx:id="is_nearly_sortedCBox" disable="true" mnemonicParsing="false" text="Nearly sorted">
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
@@ -107,7 +102,7 @@
                         <Insets right="15.0" />
                      </HBox.margin>
                   </Text>
-                  <TextField fx:id="intervalTField" alignment="CENTER" maxWidth="95.0" prefWidth="150.0" promptText="Interval" text="1" />
+                  <TextField fx:id="stepTField" alignment="CENTER" maxWidth="95.0" prefWidth="150.0" promptText="Interval" text="1" />
                </children>
             </HBox>
             <AnchorPane prefHeight="361.0" prefWidth="200.0" VBox.vgrow="ALWAYS">

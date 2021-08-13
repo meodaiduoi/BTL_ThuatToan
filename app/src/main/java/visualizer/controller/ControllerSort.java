@@ -11,7 +11,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -22,11 +21,12 @@ public class ControllerSort implements Initializable{
     public ControllerSort() {}
 
     // array cfg
+    // array cfg
     @FXML
-    private TextField array_sizeTField;
+    private TextField array_start_sizeTField;
 
     @FXML
-    private CheckBox is_interger_arrayCBox;
+    private TextField array_end_sizeTField;
 
     @FXML
     private CheckBox is_reversedCBox;
@@ -39,7 +39,7 @@ public class ControllerSort implements Initializable{
 
     // sort cfg
     @FXML
-    private TextField intervalTField;
+    private TextField stepTField;
 
     @FXML
     private CheckBox bubble_sortCBox;
@@ -93,107 +93,70 @@ public class ControllerSort implements Initializable{
         sortChart.getData().removeAll(bubble_sortSeries, interchange_sortSeries, selection_sortSeries, insertion_sortSeries, merge_sortSeries);
 
         try {
-            int loop_interval = Integer.parseInt(intervalTField.getText());
 
-            RandomArray array = new RandomArray(is_sortedCBox.isSelected(), is_reversedCBox.isSelected(), is_nearly_sortedCBox.isSelected());
-            Sort sort = new Sort(array.getArray(), loop_interval);
+            for (int i = Integer.parseInt(array_start_sizeTField.getText()); i <= Integer.parseInt(array_end_sizeTField.getText()); i += Integer.parseInt(stepTField.getText())) {
 
-            debugInfo("-- Initialize new chart: --");
-            debugInfo("Array size: " + array_sizeTField.getText());
-            debugInfo("Option: " + " Interger array = " + (String.valueOf(is_interger_arrayCBox.isSelected())));
+                Sort sort = new Sort(new RandomArray(i, is_sortedCBox.isSelected(), is_reversedCBox.isSelected(), is_nearly_sortedCBox.isSelected()).getArray());
+                String total_array_size = String.valueOf(i);
+
+                // bubble sort
+                if (bubble_sortCBox.isSelected()) {
+                    bubble_sortSeries.getData().add(new XYChart.Data<String, Number>(total_array_size, sort.bubblesort_getTotalRuntime()));
+                    // sortChart.getData().add(bubble_sortSeries);
+                }
+
+                // interchange sort
+                if (interchange_sortCBox.isSelected()) {
+                    interchange_sortSeries.getData().add(new XYChart.Data<String, Number>(total_array_size, sort.interchangesort_getTotalRuntime()));
+                    // sortChart.getData().add(interchange_sortSeries);
+                }
+
+                //selection sort
+                if (selection_sortCBox.isSelected()) {
+                    selection_sortSeries.getData().add(new XYChart.Data<String, Number>(total_array_size, sort.selectionsort_getTotalRuntime()));
+                    // sortChart.getData().add(selection_sortSeries);
+                }
+
+                // insertion sort
+                if (insertion_sortCBox.isSelected()) {
+                    insertion_sortSeries.getData().add(new XYChart.Data<String, Number>(total_array_size, sort.insertionsort_getTotalRuntime()));
+                    //sortChart.getData().add(insertion_sortSeries);
+                }
+
+                // merge sort
+                if (merge_sortCBox.isSelected()) {
+                    merge_sortSeries.getData().add(new XYChart.Data<String, Number>(total_array_size, sort.mergesort_getTotalRuntime()));
+                    // sortChart.getData().add(insertion_sortSeries);
+                }
+            }
 
             // bubble sort
             if (bubble_sortCBox.isSelected()) {
-
-                sort.bubbleSort();
-
-                int total_loop = 0;
-                bubble_sortSeries.getData().add(new XYChart.Data<String, Number>("0", 0));
-                for (Number i : sort.bubblesort_getLoopTime()) {
-                    total_loop += loop_interval;
-                    bubble_sortSeries.getData().add(new XYChart.Data<String, Number>(String.valueOf(total_loop), i));
-                }
-
                 sortChart.getData().add(bubble_sortSeries);
-
-                debugInfo("- Bubble sort:");
-                debugInfo("Finished time: " + sort.bubblesort_getTotalRuntime() + "ms");
             }
 
             // interchange sort
             if (interchange_sortCBox.isSelected()) {
-
-                sort.interChangeSort();
-
-                int total_loop = 0;
-                interchange_sortSeries.getData().add(new XYChart.Data<String, Number>("0", 0));
-                for (Number i : sort.interchangesort_getLoopTime()) {
-                    total_loop += loop_interval;
-                    interchange_sortSeries.getData().add(new XYChart.Data<String, Number>(String.valueOf(total_loop), i));
-                }
-
                 sortChart.getData().add(interchange_sortSeries);
-
-                debugInfo("- Interchange sort:");
-                debugInfo("Finished time: " + sort.interchangesort_getTotalRuntime() + "ms");
             }
 
             //selection sort
             if (selection_sortCBox.isSelected()) {
-
-                sort.selectionSort();
-
-                int total_loop = 0;
-                selection_sortSeries.getData().add(new XYChart.Data<String, Number>("0", 0));
-                for (Number i : sort.selectionsort_getLoopTime()) {
-                    total_loop += loop_interval;
-                    selection_sortSeries.getData().add(new XYChart.Data<String, Number>(String.valueOf(total_loop), i));
-                }
-
-                sortChart.setCreateSymbols(false);
                 sortChart.getData().add(selection_sortSeries);
-
-                debugInfo("- Selection sort:");
-                debugInfo("Finished time: " + sort.selectionsort_getTotalRuntime() + "ms");
             }
 
             // insertion sort
             if (insertion_sortCBox.isSelected()) {
-
-                sort.insertionSort();
-
-                int total_loop = 0;
-                insertion_sortSeries.getData().add(new XYChart.Data<String, Number>("0", 0));
-                for (Number i : sort.insertionsort_getLoopTime()) {
-                    total_loop += loop_interval;
-                    insertion_sortSeries.getData().add(new XYChart.Data<String, Number>(String.valueOf(total_loop), i));
-                }
-
                 sortChart.getData().add(insertion_sortSeries);
-
-                debugInfo("- Insertion sort:");
-                debugInfo("Finished time: " + sort.insertionsort_getTotalRuntime() + "ms");
             }
 
             // merge sort
             if (merge_sortCBox.isSelected()) {
-
-                sort.mergeSort();
-                sort.insertionsort_getTotalRuntime();
-
-                int total_loop = 0;
-                insertion_sortSeries.getData().add(new XYChart.Data<String, Number>("0", 0));
-                for (Number i : sort.insertionsort_getLoopTime()) {
-                    total_loop += loop_interval;
-                    insertion_sortSeries.getData().add(new XYChart.Data<String, Number>(String.valueOf(total_loop), i));
-                }
-
-                sortChart.setCreateSymbols(false);
-                sortChart.getData().add(insertion_sortSeries);
-
-                debugInfo("- Insertion sort:");
-                debugInfo("Finished time: " + sort.insertionsort_getTotalRuntime() + "ms");
+                sortChart.getData().add(merge_sortSeries);
             }
+
+            sortChart.setCreateSymbols(false);
+
         }
 
         catch (NumberFormatException E) {
@@ -208,7 +171,6 @@ public class ControllerSort implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        // ! ERROR
         is_sortedCBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
             if (is_sortedCBox.isSelected()) {
                 is_nearly_sortedCBox.setDisable(false);

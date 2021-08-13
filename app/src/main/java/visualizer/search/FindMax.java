@@ -1,6 +1,7 @@
 package visualizer.search;
-import java.util.ArrayList;
 
+import java.util.ArrayList;
+import java.util.Random;
 public class FindMax implements FindMaxImpl {
     private ArrayList<Integer> array = new ArrayList<>();
 
@@ -15,67 +16,66 @@ public class FindMax implements FindMaxImpl {
         return (double) (endTimes - startTimes) / 1000000;
     }
 
-    public Number binaryMax(int low, int high) {
-        Number  max1, max2 ,localMax;
+    public Integer linearMax(int low, int high) {
+        ArrayList<Integer> list = new ArrayList<>(array);
+        int localMax = list.get(low);
+        for (int i = 1; i <= high; i++) {
+            if((localMax - list.get(i)) < 0)
+                localMax = list.get(i);
+        }
+        return localMax;
+    }
+
+    public Integer binaryMax(int low, int high) {
+        int  max1, max2 ,localMax;
         int mid;
-        ArrayList<Number> list = new ArrayList<>(array);
-        long startTime = System.nanoTime();
+        ArrayList<Integer> list = new ArrayList<>(array);
         if (low == high) {
-            long stopTime = System.nanoTime();
-            binaryMax_TotalRuntime = nanoToMili(startTime, stopTime);
             localMax = list.get(low);
         }
         else {
             mid = (low + high) / 2;
             max1 = binaryMax(low, mid);
             max2 = binaryMax(mid+1, high);
-            if ((max1.doubleValue() - max2.doubleValue()) < 0) {
+            if ((max1 - max2) < 0) {
                 localMax = max2;
             } else {
                 localMax = max1;
             }
         }
-        long stopTime = System.nanoTime();
-        binaryMax_TotalRuntime = nanoToMili(startTime, stopTime);
         return localMax;
     }
-
-    public Number linearMax(int low, int high) {
-        long startTime = System.nanoTime();
-        ArrayList<Number> list = new ArrayList<>(array);
-        Number localMax = list.get(low);
-        for (int i = 1; i <= high; i++) {
-            if((localMax.doubleValue() - list.get(i).doubleValue()) < 0)
-                localMax = list.get(i);
-        }
-        long stopTime = System.nanoTime();
-        linearMax_TotalRuntime = nanoToMili(startTime, stopTime);
-        return localMax;
-    }
-
 
 
     @Override
     public double binaryMax_getTotalRuntime() {
+        long startTime = System.nanoTime();
+        ArrayList<Integer> list = new ArrayList<>(this.array);
+        binaryMax(0, list.size() - 1);
+        long stopTime = System.nanoTime();
+        binaryMax_TotalRuntime = nanoToMili(startTime , stopTime);
         return binaryMax_TotalRuntime;
     }
 
     @Override
     public double linearMax_getTotalRuntime() {
+        long startTime = System.nanoTime();
+        ArrayList<Integer> list = new ArrayList<>(this.array);
+        linearMax(0, list.size() - 1);
+        long stopTime = System.nanoTime();
+        linearMax_TotalRuntime = nanoToMili(startTime , stopTime);
         return linearMax_TotalRuntime;
     }
     public static void main(String[] args) {
         ArrayList<Integer> a = new ArrayList<>();
-        a.add(1);
-        a.add(3);
-        a.add(5);
-        a.add(4);
+        Random rd = new Random();
+		for (int i = 0; i < 5000; i++) {
+            a.add(10 * rd.nextInt());
+        }
+        // System.out.println(a.toString());
 
         FindMax s = new FindMax(a);
-        System.out.println(s.binaryMax(0, a.size() - 1));
-        System.out.println(s.binaryMax_getTotalRuntime());
-        System.out.println(s.linearMax(0, a.size() - 1));
         System.out.println(s.linearMax_getTotalRuntime());
-
+        // System.out.println(s.binaryMax_getTotalRuntime());
     }
 }
