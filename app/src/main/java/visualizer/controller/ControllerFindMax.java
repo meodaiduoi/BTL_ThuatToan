@@ -1,58 +1,117 @@
-// package visualizer.controller;
+package visualizer.controller;
 
-// import javafx.fxml.FXML;
-// import javafx.fxml.Initializable;
-// import javafx.scene.chart.LineChart;
-// import javafx.scene.chart.XYChart;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.XYChart;
 
-// import javafx.scene.control.Button;
-// import javafx.scene.control.CheckBox;
-// import javafx.scene.control.TextArea;
-// import javafx.scene.control.TextField;
-// import javafx.event.ActionEvent;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import visualizer.search.FindMax;
+import javafx.event.ActionEvent;
 
 
-// import java.io.IOException;
-// import java.net.URL;
-// import java.util.ResourceBundle;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-// public class ControllerFindMax implements Initializable{ {
+import visualizer.dataset.RandomArray;
 
-//     XYChart.Series<String, Number> min_max_Series = new XYChart.Series<String, Number>();
-//     XYChart.Series<String, Number> min_max_Series = new XYChart.Series<String, Number>();
 
-//     @FXML
-//     private void handleButton_initChart (ActionEvent event) {
-//         linear_findmaxSeries.getData().clear();
-//         binary_Series.getData().clear();
 
-//         findMaxChart.getData().removeAll();
+public class ControllerFindMax implements Initializable {
 
-//         try {
+    // array cfg
+    @FXML
+    private TextField array_start_sizeTField;
 
-//         }
+    @FXML
+    private TextField array_end_sizeTField;
 
-//         catch (NumberFormatException E) {
+    @FXML
+    private TextArea search_infoTArea;
 
-//         }
-//         catch (Exception E) {}
+    // search
+    @FXML
+    private TextField stepTField;
 
-//     }
+    @FXML
+    private CheckBox binary_findmaxCBox;
 
-//     @Override
-//     public void initialize(URL location, ResourceBundle resources) {
+    @FXML
+    private CheckBox linear_findmaxCBox;
 
-//         // init linechart
-//         Series.setName("Bubblesort");
-//         Series.setName("Interchange sort");
+    @FXML
+    private LineChart<String, Number> findMaxChart;
 
-//         // starting point
-//         Series.getData().add(new XYChart.Data<String, Number>("0", 0));
-//         Series.getData().add(new XYChart.Data<String, Number>("0", 0));
+    XYChart.Series<String, Number> linear_findmaxSeries = new XYChart.Series<String, Number>();
+    XYChart.Series<String, Number> binary_findmaxSeries = new XYChart.Series<String, Number>();
 
-//         // add figure
-//         Chart.getData().add(linearhSeries);
-//         Chart.getData().add(binaryhSeries);
-//     }
+    @FXML
+    private void handleButton_initChart (ActionEvent event) {
 
-// }
+        linear_findmaxSeries.getData().clear();
+        binary_findmaxSeries.getData().clear();
+        findMaxChart.getData().removeAll(linear_findmaxSeries, binary_findmaxSeries);
+
+        try {
+            for (int i = Integer.parseInt(array_start_sizeTField.getText()); i <= Integer.parseInt(array_end_sizeTField.getText()); i += Integer.parseInt(stepTField.getText())) {
+
+                FindMax findmax = new FindMax(new RandomArray(i, true, false, false).getArray());
+                String total_array_size = String.valueOf(i);
+
+                // binary search
+                if (binary_findmaxCBox.isSelected()) {
+                    binary_findmaxSeries.getData().add(new XYChart.Data<String, Number>(total_array_size, findmax.binaryMax_getTotalRuntime()));
+                }
+
+                // linear search
+                if (linear_findmaxCBox.isSelected()) {
+                    linear_findmaxSeries.getData().add(new XYChart.Data<String, Number>(total_array_size, findmax.linearMax_getTotalRuntime()));
+
+                }
+            }
+
+            // binary search
+            if (binary_findmaxCBox.isSelected()) {
+                findMaxChart.getData().add(binary_findmaxSeries);
+            }
+
+            // linear search
+            if (linear_findmaxCBox.isSelected()) {
+                findMaxChart.getData().add(linear_findmaxSeries);
+            }
+
+            findMaxChart.setCreateSymbols(false);
+        }
+
+        catch (NumberFormatException E) {
+            System.out.println("Not A Number");
+        }
+
+        catch (Exception E) {
+            System.out.println("Error ?");
+        }
+
+    }
+
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+        // init linechart
+        linear_findmaxSeries.setName("Linear FindMax");
+        binary_findmaxSeries.setName("Binary FindMax");
+
+        // starting point
+        linear_findmaxSeries.getData().add(new XYChart.Data<String, Number>("0", 0));
+        binary_findmaxSeries.getData().add(new XYChart.Data<String, Number>("0", 0));
+
+        // add figure
+        findMaxChart.getData().add(linear_findmaxSeries);
+        findMaxChart.getData().add(binary_findmaxSeries);
+    }
+
+}

@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox prefHeight="236.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<HBox prefHeight="236.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="visualizer.controller.ControllerFindMax">
    <children>
       <VBox maxWidth="300.0" prefWidth="200.0">
          <children>
@@ -30,19 +30,14 @@
                   </Text>
                </children>
             </HBox>
-            <HBox alignment="CENTER">
+            <AnchorPane prefHeight="95.0" prefWidth="200.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Array size:">
-                     <HBox.margin>
-                        <Insets right="15.0" />
-                     </HBox.margin>
-                  </Text>
-                  <TextField fx:id="array_sizeTField" alignment="CENTER" maxWidth="95.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="25.0" prefWidth="124.0" promptText="Array size" text="100" />
+                  <Text layoutX="20.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start size:" />
+                  <TextField fx:id="array_start_sizeTField" alignment="CENTER" layoutX="90.0" layoutY="14.0" maxWidth="90.0" prefWidth="90.0" promptText="Array size" text="2" />
+                  <Text layoutX="22.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="End size:" />
+                  <TextField fx:id="array_end_sizeTField" alignment="CENTER" layoutX="90.0" layoutY="46.0" maxWidth="90.0" prefWidth="90.0" promptText="Array size" text="100" />
                </children>
-               <VBox.margin>
-                  <Insets top="15.0" />
-               </VBox.margin>
-            </HBox>
+            </AnchorPane>
             <TextArea prefHeight="264.0" prefWidth="175.0" VBox.vgrow="ALWAYS">
                <VBox.margin>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
@@ -50,7 +45,7 @@
             </TextArea>
          </children>
       </VBox>
-      <LineChart prefWidth="291.0" title="      Search algorithm comparison graph" HBox.hgrow="ALWAYS">
+      <LineChart fx:id="findMaxChart" animated="false" prefWidth="291.0" title="      Find max algorithm comparison graph" HBox.hgrow="ALWAYS">
          <xAxis>
             <CategoryAxis label="Array Length" side="BOTTOM" />
          </xAxis>
@@ -85,24 +80,24 @@
                         <Insets right="15.0" />
                      </HBox.margin>
                   </Text>
-                  <TextField alignment="CENTER" maxWidth="95.0" prefWidth="150.0" promptText="Interval" text="1" />
+                  <TextField fx:id="stepTField" alignment="CENTER" maxWidth="95.0" prefWidth="150.0" promptText="Interval" text="1" />
                </children>
             </HBox>
             <AnchorPane prefHeight="361.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                <children>
                   <VBox layoutX="14.0" layoutY="14.0" prefHeight="85.0" prefWidth="152.0">
                      <children>
-                        <CheckBox mnemonicParsing="false" text="Pro vip min-max">
+                        <CheckBox fx:id="binary_findmaxCBox" mnemonicParsing="false" text="Binary min-max">
                            <VBox.margin>
                               <Insets top="10.0" />
                            </VBox.margin>
                         </CheckBox>
-                        <CheckBox mnemonicParsing="false" text="Linear min-max">
+                        <CheckBox fx:id="linear_findmaxCBox" mnemonicParsing="false" text="Linear min-max">
                            <VBox.margin>
                               <Insets top="10.0" />
                            </VBox.margin>
                         </CheckBox>
-                        <Button mnemonicParsing="false" text="Initialize graph">
+                        <Button mnemonicParsing="false" onAction="#handleButton_initChart" text="Initialize graph">
                            <VBox.margin>
                               <Insets top="30.0" />
                            </VBox.margin>

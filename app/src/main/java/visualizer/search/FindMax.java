@@ -2,6 +2,8 @@ package visualizer.search;
 
 import java.util.ArrayList;
 import java.util.Random;
+
+import visualizer.dataset.RandomArray;
 public class FindMax implements FindMaxImpl {
     private ArrayList<Integer> array = new ArrayList<>();
 
@@ -49,8 +51,8 @@ public class FindMax implements FindMaxImpl {
 
     @Override
     public double binaryMax_getTotalRuntime() {
-        long startTime = System.nanoTime();
         ArrayList<Integer> list = new ArrayList<>(this.array);
+        long startTime = System.nanoTime();
         binaryMax(0, list.size() - 1);
         long stopTime = System.nanoTime();
         binaryMax_TotalRuntime = nanoToMili(startTime , stopTime);
@@ -59,8 +61,8 @@ public class FindMax implements FindMaxImpl {
 
     @Override
     public double linearMax_getTotalRuntime() {
-        long startTime = System.nanoTime();
         ArrayList<Integer> list = new ArrayList<>(this.array);
+        long startTime = System.nanoTime();
         linearMax(0, list.size() - 1);
         long stopTime = System.nanoTime();
         linearMax_TotalRuntime = nanoToMili(startTime , stopTime);
@@ -74,8 +76,8 @@ public class FindMax implements FindMaxImpl {
         }
         // System.out.println(a.toString());
 
-        FindMax s = new FindMax(a);
+        FindMax s = new FindMax(new RandomArray(555, true, true, false).getArray());
         System.out.println(s.linearMax_getTotalRuntime());
-        // System.out.println(s.binaryMax_getTotalRuntime());
+        System.out.println(s.binaryMax_getTotalRuntime());
     }
 }

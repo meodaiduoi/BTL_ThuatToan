@@ -2,6 +2,8 @@ package visualizer.search;
 
 import java.util.ArrayList;
 import java.util.Random;
+
+import visualizer.dataset.RandomArray;
 public class Search implements SearchImpl {
     private ArrayList<Integer> array = new ArrayList<>();
 
@@ -49,7 +51,7 @@ public class Search implements SearchImpl {
             }
 
         } // for
-        
+
         return -1;
     } // linearSearch
 
@@ -73,9 +75,13 @@ public class Search implements SearchImpl {
     public static void main(String[] args) {
         ArrayList<Integer> a = new ArrayList<>();
         Random rd = new Random();
-		for (int i = 0; i < 55; i++) {
+		for (int i = 0; i < 100; i++) {
             a.add(100 * rd.nextInt());
         }
+        RandomArray b = new RandomArray(30, false, false, false);
+
+        // System.out.println(a);
+        // System.out.println(b.getArray());
 
         Search s = new Search(a);
 

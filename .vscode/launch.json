@@ -1,6 +1,26 @@
 {
     "configurations": [
         {
-        }
+            "type": "java",
+            "name": "Launch closestPairPoints",
+            "request": "launch",
+            "mainClass": "visualizer.closestpair.closestPairPoints",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
+            "name": "Launch FindMax",
+            "request": "launch",
+            "mainClass": "visualizer.search.FindMax",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
+            "name": "Launch Search",
+            "request": "launch",
+            "mainClass": "visualizer.search.Search",
+            "projectName": "app"
+        },
+        {}
     ]
 }
