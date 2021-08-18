@@ -5,15 +5,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 
-import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import visualizer.search.FindMax;
 import javafx.event.ActionEvent;
 
-
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 

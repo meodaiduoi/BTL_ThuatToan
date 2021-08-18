@@ -13,15 +13,14 @@ plugins {
 
 }
 
-// jar {
-//     manifest {
-//          attributes 'Main-Class': 'visualizer.main.App'
-//     }
-//     from {
-//         exclude '**/module-info.class'
-//         configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
-//     }
-// }
+jar {
+    manifest {
+        attributes 'Main-Class': 'visualizer.main.App'
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
 
 repositories {
     // Use Maven Central for resolving dependencies.
@@ -36,9 +35,9 @@ dependencies {
     // implementation 'com.google.guava:guava:30.1-jre'
     // https://stackoverflow.com/questions/52569724/javafx-11-create-a-jar-file-with-gradle
 
-    // compile "org.openjfx:javafx-base:16:win"
-    // compile "org.openjfx:javafx-graphics:16:win"
-    // compile "org.openjfx:javafx-controls:16:win"
+    // compile "org.openjfx:javafx-base:15:win"
+    // compile "org.openjfx:javafx-graphics:15:win"
+    // compile "org.openjfx:javafx-controls:15:win"
 }
 
 application {

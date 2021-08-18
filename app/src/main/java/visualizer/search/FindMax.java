@@ -76,7 +76,7 @@ public class FindMax implements FindMaxImpl {
         }
         // System.out.println(a.toString());
 
-        FindMax s = new FindMax(new RandomArray(555, true, true, false).getArray());
+        FindMax s = new FindMax(new RandomArray(20000, true, false, false).getArray());
         System.out.println(s.linearMax_getTotalRuntime());
         System.out.println(s.binaryMax_getTotalRuntime());
     }

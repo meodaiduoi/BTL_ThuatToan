@@ -1,9 +1,9 @@
 package visualizer.search;
 
 import java.util.ArrayList;
-import java.util.Random;
+// import java.util.Random;
 
-import visualizer.dataset.RandomArray;
+// import visualizer.dataset.RandomArray;
 public class Search implements SearchImpl {
     private ArrayList<Integer> array = new ArrayList<>();
 
@@ -73,19 +73,19 @@ public class Search implements SearchImpl {
         return linearSearch_TotalRuntime;
     }
     public static void main(String[] args) {
-        ArrayList<Integer> a = new ArrayList<>();
-        Random rd = new Random();
-		for (int i = 0; i < 100; i++) {
-            a.add(100 * rd.nextInt());
-        }
-        RandomArray b = new RandomArray(30, false, false, false);
+        // ArrayList<Integer> a = new ArrayList<>();
+        // Random rd = new Random();
+		// for (int i = 0; i < 100; i++) {
+        //     a.add(100 * rd.nextInt());
+        // }
+        // RandomArray b = new RandomArray(30, false, false, false);
 
-        // System.out.println(a);
-        // System.out.println(b.getArray());
+        // // System.out.println(a);
+        // // System.out.println(b.getArray());
 
-        Search s = new Search(a);
+        // Search s = new Search(a);
 
-        System.out.println(s.binarySearch_getTotalRuntime());
-        System.out.println(s.linearSearch_getTotalRuntime());
+        // System.out.println(s.binarySearch_getTotalRuntime());
+        // System.out.println(s.linearSearch_getTotalRuntime());
     }
 }
